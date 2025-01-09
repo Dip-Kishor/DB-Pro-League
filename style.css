@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-image: url('/BG1.webp');
+    background-image: url('/blob/master/BG1.webp');
     background-size: cover;
     background-position: center;
 }
