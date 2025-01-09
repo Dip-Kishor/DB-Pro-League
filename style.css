@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-image: url('/blob/master/BG1.webp');
+    background-image: url('BG1.webp');
     background-size: cover;
     background-position: center;
 }
@@ -192,7 +192,7 @@ h1{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: white;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    background-image: url('/BG4.jpg');
+    background-image: url('BG4.jpg');
     background-size: cover;
     background-position: center;
   }
@@ -446,7 +446,7 @@ h1{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: white;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    background-image: url('/BG4.jpg');
+    background-image: url('BG4.jpg');
     background-size: cover;
     background-position: center;
     position: relative; /* Needed for connecting lines */
