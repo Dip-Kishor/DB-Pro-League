@@ -651,7 +651,7 @@ h1{
     gap: 15px;
   }
   .fixture-card {
-    width: 85%;
+    width: 92%;
   }
   .fixture-table {
     width: 80%;
@@ -663,7 +663,7 @@ h1{
     padding: 10px;
     text-align: right;
     border: none; /* Remove border */
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
 }
 }
