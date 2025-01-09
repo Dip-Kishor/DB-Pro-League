@@ -6,12 +6,15 @@ body, ul, li, a,ol {
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-image: url('BG1.webp');
-    background-size: cover;
-    background-position: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url('BG1.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Makes the background fixed while scrolling */
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Ensures the background covers the entire viewport height */
 }
 p, h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -25,9 +28,6 @@ h1{
     background-color: #3D5D50;
     color: #fff;
     padding: 20px 20px;
-    /* background-image: url('/Images/BG2.webp');
-    background-size: cover;
-    background-position: center; */
 }
 
 .navbar-container {
@@ -181,9 +181,9 @@ h1{
     justify-content: center;
     margin-top: 0px;
     padding: 20px;
-  }
-  
-  .fixture-card {
+}
+
+.fixture-card {
     flex: 0 1 calc(42% - 60px); /* Two cards per row with spacing */
     border: 1px solid #ddd;
     padding: 20px;
@@ -195,14 +195,14 @@ h1{
     background-image: url('BG4.jpg');
     background-size: cover;
     background-position: center;
-  }
-  
-  .fixture-card:hover {
+}
+
+.fixture-card:hover {
     transform: scale(1.05);
     background-color: #13816b; /* Teal on hover */
-  }
-  
-  .fixture-header {
+}
+
+.fixture-header {
     display: flex;
     justify-content: space-between; /* Space between "Round" and "Date" */
     align-items: center;
@@ -210,90 +210,87 @@ h1{
     font-weight: bold;
     margin-bottom: 20px; /* Spacing below header */
     color: white;
-  }
-  
-  .fixture-details {
+}
+
+.fixture-details {
     display: flex;
     flex-direction: column; /* Stack fixtures vertically */
     align-items: center; /* Center-align fixtures */
     justify-content: center;
     gap: 30px; /* Add space between fixtures */
-  }
-  
-  .teams {
+}
+
+.teams {
     display: flex;
     align-items: center; /* Vertically align elements */
     justify-content: space-between; /* Center teams and push time to the right */
     font-size: 18px;
     font-weight: bold;
     width: 100%; /* Use full card width */
-  }
-  
-  .center-elements {
+}
+
+.center-elements {
     display: flex;
     align-items: center;
     justify-content: center; /* Keeps team names and scores in the center */
     gap: 10px; /* Space between items */
     width: 90%;
-  }
-  
-  .time {
+}
+
+.time {
     margin-left: auto; /* Aligns the time to the right */
     font-size: 14px;
     color: white;
-  }
-  
-  .team {
+}
+
+.team {
     font-size: 25px;
     margin: 0 15px;
     cursor: pointer;
-  }
-  
-  .score {
+}
+
+.score {
     font-size: 27px;
     margin: 0 10px;
-  }
-  
-  .vs {
+}
+
+.vs {
     font-size: 18px;
     margin: 0 5px;
     font-weight: normal;
-  }
-  .fixture-table {
+}
+
+.fixture-table {
     width: 100%;
     border-collapse: collapse; /* Ensures table cells are adjacent */
     margin-top: 20px;
-    
-  }
-  
-  .fixture-table th, .fixture-table td {
+}
+
+.fixture-table th, .fixture-table td {
     padding: 10px;
     text-align: right;
     border: none; /* Remove border */
-  }
-  
-  /* Remove background for even and odd rows */
+}
+
 .fixture-table tr:nth-child(even),
 .fixture-table tr:nth-child(odd) {
-  background-color: transparent; /* No background color */
+    background-color: transparent; /* No background color */
 }
 
-/* Remove background for header and data cells */
 .fixture-table th,
 .fixture-table td {
-  background-color: transparent; /* No background color */
-  color: inherit; /* Inherit color from parent or default color */
+    background-color: transparent; /* No background color */
+    color: inherit; /* Inherit color from parent or default color */
 }
 
-/* Optional: Ensure the table header has no background and retains normal text color */
 .fixture-table th {
-  font-weight: bold;
-  color: inherit; /* Inherit color from parent or default color */
+    font-weight: bold;
+    color: inherit; /* Inherit color from parent or default color */
 }
 
 .fixture-table td.team:hover {
-  color: #ff6347;
-  cursor: pointer;
+    color: #ff6347;
+    cursor: pointer;
 }
 /*   
   .fixture-table td.team {
@@ -390,6 +387,7 @@ h1{
     text-align: center;
     display: block;
     margin-top: 20px;
+    font-size: 25px;
   }
 
   .modal-playoff {
@@ -401,9 +399,10 @@ h1{
     background: rgba(0, 0, 0, 0.5); /* Transparent background overlay */
     display: none; /* Hidden by default */
     z-index: 999;
-  }
+    overflow: auto; /* Allow scrolling in modal-playoff */
+}
   
-  .modal {
+.modal {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -412,30 +411,21 @@ h1{
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: none; /* Hidden by default */
+    display: none; 
     z-index: 1000;
-  }
-  
-  .modal h2 {
-    margin: 0 0 20px;
-  }
-  
-  /* .close-modal {
-    display: block;
-    margin-top: 20px;
-    color: blue;
-    cursor: pointer;
-    text-align: right;
-  } */
-  #modal-content-playoff {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
-    grid-gap: 20px; /* Space between items */
-    position: relative; /* Needed for absolute positioning of lines */
-    align-items: start;
+    max-width: 100%; /* Prevents content overflow */
+    overflow: auto; /* Enable scrolling if the content overflows */
 }
 
-
+#modal-content-playoff {
+    display: grid;
+    grid-template-columns: repeat(3, auto); /* Ensure each column has automatic width */
+    grid-gap: 20px 150px; /* Space between items */
+    position: relative; /* Needed for absolute positioning of lines */
+    align-items: start;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent content wrapping */
+}
 
 
 .fixture-card-playoff {
@@ -451,32 +441,33 @@ h1{
     background-position: center;
     position: relative; /* Needed for connecting lines */
     margin-bottom: 0;
-    width: 60%;
+    width: 300px; /* Fixed width for the cards */
     text-align: center;
     font-size: 20px;
     font-weight: bold;
 }
+
 .fixture-card-final-winner {
-  border: 1px solid #ddd;
-  padding: 20px;
-  background-color: #3B5B50;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-image: url('Trophy.jpg');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  margin-bottom: 0;
-  width: 60%;
-  height: 150%;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  left: 211%;
-  top: -100%;
-  display: flex;
-  align-items: flex-end; /* Align content at the bottom */
-  justify-content: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #3B5B50;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-image: url('Trophy.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-bottom: 0;
+    width: 300px; /* Fixed width for the winner card */
+    height: 150%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    left: 288%;
+    top: -90%;
+    display: flex;
+    align-items: flex-end; /* Align content at the bottom */
+    justify-content: center;
 }
 
 .winner-text {
@@ -541,7 +532,7 @@ h1{
 #Qualifier::before {
   content: "";
   position: absolute;
-  width: 249%; /* Adjust to the horizontal distance to Eliminator 2 */
+  width: 240%; /* Adjust to the horizontal distance to Eliminator 2 */
   height: 3px; /* Thickness of the line */
   background-color: rgb(9, 161, 97);
   top: 50%; /* Middle of Qualifier */
@@ -573,11 +564,11 @@ h1{
 #Eliminator2::before {
   content: "";
     position: absolute;
-    width: 100%;
+    width: 95%;
     height: 3px;
     background-color: rgb(245, 3, 3);
     top: 53%;
-    left: -100%;
+    left: -95%;
     transform: translateY(-50%);
 }
 #Eliminator2::after {
@@ -637,53 +628,29 @@ h1{
   
   
 
-
-/* Responsive styles for small devices between 392px and 600px */
-@media (min-width: 392px) and (max-width: 600px) {
-  /* Navbar */
-  
-
-  .navbar-logo {
-      font-size: 1.2rem; /* Smaller logo font size */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
   }
-
   .navbar-menu {
-      flex-direction: column; /* Stack menu items vertically */
-      gap: 10px; /* Reduce gap between menu items */
+    margin-top:15px;
+    flex-direction: column;
+    gap: 10px;
   }
-
-  .navbar-link {
-      font-size: 1.2rem; /* Reduce link font size */
-  }
-
-  .section h1 {
+  .section {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-}
-  /* Terms and Conditions */
-  .terms-container {
-      font-size: 0.9rem; /* Slightly smaller font size */
-      padding: 10px; /* Reduced padding for smaller devices */
   }
-
-  h1 {
-      font-size: 1.5rem; /* Adjust heading font size */
+  .section h1, .section #playoff {
+    padding: 10px;
   }
-
-  /* Fixtures Card */
+  .fixtures {
+    flex-direction: column;
+    gap: 15px;
+  }
   .fixture-card {
-      flex: 0 1 calc(100% - 20px); /* Full-width cards with margin */
-      margin: 10px; /* Add spacing around cards */
-  }
-
-  .fixture-header {
-      font-size: 16px; /* Smaller font size for headers */
-  }
-
-  .teams {
-      font-size: 14px; /* Smaller font size for team details */
-  }
-
-  .time {
-      font-size: 12px; /* Reduce time font size */
+    flex: 0 1 100%; /* Full width cards for small screens */
   }
 }
