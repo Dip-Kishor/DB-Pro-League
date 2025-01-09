@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+    <link href="/CSS/style.css" />
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+    <section class="section">
+      <h1>Table</h1>
+    </section>
+
+    <div class="table-container">
+      <table id="team-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Played</th>
+            <th>Win</th>
+            <th>Draw</th>
+            <th>Lost</th>
+            <th>GF</th>
+            <th>GA</th>
+            <th>GD</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be dynamically added here -->
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      fetch("base.html")
+        .then((response) => response.text())
+        .then(
+          (data) =>
+            (document.getElementById("navbar-placeholder").innerHTML = data)
+        );
+
+      // Initial data array
+      let teams = [
+        {
+          name: "Dip",
+          played: 2,
+          win: 2,
+          draw: 0,
+          lost: 0,
+          gf: 9,
+          ga: 1,
+        },
+        {
+          name: "Aadhar",
+          played: 2,
+          win: 1,
+          draw: 0,
+          lost: 1,
+          gf: 2,
+          ga: 5,
+        },
+        {
+          name: "Sujan",
+          played: 2,
+          win: 2,
+          draw: 0,
+          lost: 0,
+          gf: 4,
+          ga: 1,
+        },
+        {
+          name: "Pujan",
+          played: 2,
+          win: 2,
+          draw: 0,
+          lost: 0,
+          gf: 4,
+          ga: 2,
+        },
+        {
+          name: "Samrat",
+          played: 2,
+          win: 0,
+          draw: 1,
+          lost: 1,
+          gf: 2,
+          ga: 4,
+        },
+        {
+          name: "Prabesh",
+          played: 2,
+          win: 0,
+          draw: 0,
+          lost: 2,
+          gf: 3,
+          ga: 5,
+        },
+        {
+          name: "Roman",
+          played: 2,
+          win: 0,
+          draw: 0,
+          lost: 2,
+          gf: 1,
+          ga: 4,
+        },
+        {
+          name: "Sudip",
+          played: 2,
+          win: 1,
+          draw: 0,
+          lost: 1,
+          gf: 2,
+          ga: 1,
+        },
+        {
+          name: "Bijay",
+          played: 2,
+          win: 0,
+          draw: 1,
+          lost: 1,
+          gf: 2,
+          ga: 6,
+        },
+        {
+          name: "Ronish",
+          played: 2,
+          win: 1,
+          draw: 0,
+          lost: 1,
+          gf: 4,
+          ga: 4,
+        },
+        // Add more teams as needed
+      ];
+
+      // Function to calculate GD and points
+      function calculateGDAndPoints(team) {
+        team.gd = team.gf - team.ga; // Goal difference
+        team.points = team.win * 3 + team.draw; // Points calculation
+      }
+
+      // Function to sort the teams based on points and GD
+      function sortTeams() {
+        // Calculate GD and points for all teams before sorting
+        teams.forEach(calculateGDAndPoints);
+
+        // Sort the teams by points, and then by GD if points are equal
+        teams.sort((a, b) => {
+          if (b.points !== a.points) {
+            return b.points - a.points; // Sort by points in descending order
+          } else {
+            return b.gd - a.gd; // If points are equal, sort by GD in descending order
+          }
+        });
+
+        // Assign ranks based on sorted order
+        teams.forEach((team, index) => {
+          team.rank = index + 1; // Rank starts from 1
+        });
+      }
+
+      // Function to render the table
+      function renderTable() {
+        sortTeams(); // Sort teams before rendering and assign ranks
+        const tableBody = document.querySelector("#team-table tbody");
+        tableBody.innerHTML = ""; // Clear existing rows
+
+        teams.forEach((team) => {
+          // GD, points, and ranks are now dynamically calculated and assigned
+          const row = document.createElement("tr");
+          row.innerHTML = `
+        <td>${team.rank}</td>
+        <td>${team.name}</td>
+        <td>${team.played}</td>
+        <td>${team.win}</td>
+        <td>${team.draw}</td>
+        <td>${team.lost}</td>
+        <td>${team.gf}</td>
+        <td>${team.ga}</td>
+        <td>${team.gd}</td>
+        <td>${team.points}</td>
+      `;
+          tableBody.appendChild(row);
+        });
+      }
+
+      // Initial render
+      renderTable();
+    </script>
+  </body>
+</html>

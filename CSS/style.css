@@ -1,0 +1,689 @@
+body, ul, li, a,ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('/Images/BG1.webp');
+    background-size: cover;
+    background-position: center;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-size: 40px;
+  }
+
+.navbar {
+    background-color: #3D5D50;
+    color: #fff;
+    padding: 20px 20px;
+    /* background-image: url('/Images/BG2.webp');
+    background-size: cover;
+    background-position: center; */
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-item {
+    list-style: none;
+}
+
+.navbar-link {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+    color: #ff6347;
+}
+
+
+
+/* Home page styles */
+.section {
+    height: 20vh;
+    background-color: #3D5D50;
+    margin: 0;
+    color: white;
+    /* background-image: url('/Images/BG2.webp');
+    background-size: cover;
+    background-position: center; */
+    display: flex;
+    justify-content: space-between;
+}
+.section h1{
+    padding-top: 70px;
+    padding-left: 253px;
+}
+.section #playoff{
+  font-size: 30px;
+    padding-top: 80px;
+    padding-right: 253px;
+}
+.section #playoff:hover{
+  cursor: pointer;
+  color:#ff6347;
+}
+
+.terms-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header styling */
+.terms-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #3D5D50;
+}
+
+/* Ordered list styling */
+.terms-list {
+    list-style: decimal inside;
+    padding-left: 20px;
+}
+
+/* List item styling */
+.terms-list li {
+    margin-bottom: 15px;
+}
+
+/* Sub-list styling */
+.terms-list ul {
+    list-style: circle inside;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.terms-list ul li {
+    margin-bottom: 5px;
+}
+
+/* Strong text emphasis */
+.terms-list strong {
+    color: #3D5D50;
+}   
+
+/* Table page styles */
+.table-container {
+    max-width: 90%;
+    margin: 20px auto;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  th {
+    background-color: #3D5D50;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
+
+  .fixtures {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Horizontal and vertical gap between cards */
+    justify-content: center;
+    margin-top: 0px;
+    padding: 20px;
+  }
+  
+  .fixture-card {
+    flex: 0 1 calc(42% - 60px); /* Two cards per row with spacing */
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #3B5B50; /* Navy Blue */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    background-image: url('/Images/BG4.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .fixture-card:hover {
+    transform: scale(1.05);
+    background-color: #13816b; /* Teal on hover */
+  }
+  
+  .fixture-header {
+    display: flex;
+    justify-content: space-between; /* Space between "Round" and "Date" */
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px; /* Spacing below header */
+    color: white;
+  }
+  
+  .fixture-details {
+    display: flex;
+    flex-direction: column; /* Stack fixtures vertically */
+    align-items: center; /* Center-align fixtures */
+    justify-content: center;
+    gap: 30px; /* Add space between fixtures */
+  }
+  
+  .teams {
+    display: flex;
+    align-items: center; /* Vertically align elements */
+    justify-content: space-between; /* Center teams and push time to the right */
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%; /* Use full card width */
+  }
+  
+  .center-elements {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Keeps team names and scores in the center */
+    gap: 10px; /* Space between items */
+    width: 90%;
+  }
+  
+  .time {
+    margin-left: auto; /* Aligns the time to the right */
+    font-size: 14px;
+    color: white;
+  }
+  
+  .team {
+    font-size: 25px;
+    margin: 0 15px;
+    cursor: pointer;
+  }
+  
+  .score {
+    font-size: 27px;
+    margin: 0 10px;
+  }
+  
+  .vs {
+    font-size: 18px;
+    margin: 0 5px;
+    font-weight: normal;
+  }
+  .fixture-table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures table cells are adjacent */
+    margin-top: 20px;
+    
+  }
+  
+  .fixture-table th, .fixture-table td {
+    padding: 10px;
+    text-align: right;
+    border: none; /* Remove border */
+  }
+  
+  /* Remove background for even and odd rows */
+.fixture-table tr:nth-child(even),
+.fixture-table tr:nth-child(odd) {
+  background-color: transparent; /* No background color */
+}
+
+/* Remove background for header and data cells */
+.fixture-table th,
+.fixture-table td {
+  background-color: transparent; /* No background color */
+  color: inherit; /* Inherit color from parent or default color */
+}
+
+/* Optional: Ensure the table header has no background and retains normal text color */
+.fixture-table th {
+  font-weight: bold;
+  color: inherit; /* Inherit color from parent or default color */
+}
+
+.fixture-table td.team:hover {
+  color: #ff6347;
+  cursor: pointer;
+}
+/*   
+  .fixture-table td.team {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .fixture-table td.score {
+    font-size: 18px;
+  }
+  
+  .fixture-table td.vs {
+    font-weight: normal;
+    font-size: 16px;
+  }
+  
+  .fixture-table td.time {
+    font-size: 14px;
+  } */
+  
+
+  
+  
+  .modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-height: 80%;
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+  }
+
+  .modal.open {
+    display: block;
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .modal-overlay.open {
+    display: block;
+  }
+
+  .modal h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .history-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .history-card.win {
+    background-color: #d4edda;
+    color: #155724;
+  }
+
+  .history-card.loss {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  .history-card.draw {
+    background-color:rgb(195, 187, 187);
+    color: black;
+  }
+  
+  .history-card.NP{
+    background-color: white
+  }
+  .close-modal {
+    cursor: pointer;
+    color: #ff0000;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+  }
+
+  .modal-playoff {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Transparent background overlay */
+    display: none; /* Hidden by default */
+    z-index: 999;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Hidden by default */
+    z-index: 1000;
+  }
+  
+  .modal h2 {
+    margin: 0 0 20px;
+  }
+  
+  /* .close-modal {
+    display: block;
+    margin-top: 20px;
+    color: blue;
+    cursor: pointer;
+    text-align: right;
+  } */
+  #modal-content-playoff {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+    grid-gap: 20px; /* Space between items */
+    position: relative; /* Needed for absolute positioning of lines */
+    align-items: start;
+}
+
+
+
+
+.fixture-card-playoff {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #3B5B50;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    background-image: url(/Images/BG4.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Needed for connecting lines */
+    margin-bottom: 0;
+    width: 60%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+.fixture-card-final-winner {
+  border: 1px solid #ddd;
+  padding: 20px;
+  background-color: #3B5B50;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-image: url(/Images/Trophy.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-bottom: 0;
+  width: 60%;
+  height: 150%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  left: 211%;
+  top: -100%;
+  display: flex;
+  align-items: flex-end; /* Align content at the bottom */
+  justify-content: center;
+}
+
+.winner-text {
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for better readability */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 24px; /* Adjust text size */
+  text-align: center;
+}
+
+.winner-label {
+  display: block;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.winner-name {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Assign grid areas to the items */
+#Qualifier {
+    grid-column: 1; /* First column */
+}
+
+#Eliminator1 {
+    grid-column: 1; /* First column */
+    margin-top: 150px; 
+}
+
+#Eliminator2 {
+    grid-column: 2; /* Second column */
+    margin-top: 30px; 
+
+}
+
+#Final {
+    grid-column: 3; /* Third column */
+    margin-top: 30px; 
+
+}
+
+
+  /* Qualifier to Eliminator2 line */
+#Qualifier::after {
+  content: "";
+    position: absolute;
+    width: 3px;
+    height: 95px;
+    background-color: rgb(250, 7, 7);
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Line from Qualifier to Final */
+#Qualifier::before {
+  content: "";
+  position: absolute;
+  width: 249%; /* Adjust to the horizontal distance to Eliminator 2 */
+  height: 3px; /* Thickness of the line */
+  background-color: rgb(9, 161, 97);
+  top: 50%; /* Middle of Qualifier */
+  left: 100%; /* Start from the right of Qualifier */
+  transform: translateY(-50%);
+}
+
+/* Vertical line to connect Eliminator 2 */
+#Eliminator1::before {
+  content: "";
+  position: absolute;
+  width: 100%; /* Adjust to the horizontal distance to Eliminator 2 */
+  height: 3px; /* Thickness of the line */
+  background-color: rgb(9, 161, 97);
+  top: 53%; /* Middle of Qualifier */
+  left: 100%; /* Start from the right of Qualifier */
+  transform: translateY(-50%);
+}
+#Eliminator1::after {
+  content: "";
+    position: absolute;
+    width: 2.5px;
+    height: 97px;
+    background-color: rgb(9, 161, 97);
+    top: -59%;
+    left: 200%;
+    transform: translateX(-50%);
+}
+#Eliminator2::before {
+  content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(245, 3, 3);
+    top: 53%;
+    left: -100%;
+    transform: translateY(-50%);
+}
+#Eliminator2::after {
+  content: "";
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    background-color: rgb(9, 161, 97);
+    top: 53%;
+    left: 100%;
+    transform: translateY(-50%);
+}
+#Final::before {
+  content: "";
+    position: absolute;
+    width: 3px;
+    height: 93px;
+    background-color: rgb(9, 161, 97);
+    top: -93px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#line-label-Q-F {
+  position: absolute;
+    font-size: 20px;
+    color: rgb(9, 161, 97);
+    top: 20%;
+    left: 200%;
+    transform: translateX(-50%);
+}
+#line-label-Q-E2 {
+  position: absolute;
+    font-size: 20px;
+    color: rgb(249, 5, 5);
+    top: 184%;
+    left: 85%;
+    transform: translateX(-50%);
+}
+#line-label-E1-E2 {
+  position: absolute;
+    font-size: 20px;
+    color: rgb(9, 161, 97);
+    top: 18%;
+    left: 140%;
+    transform: translateX(-50%);
+}
+#line-label-E2-F {
+  position: absolute;
+    font-size: 20px;
+    color: rgb(9, 161, 97);
+    top: 18%;
+    left: 120%;
+    transform: translateX(-50%);
+}
+
+
+  
+  
+
+
+/* Responsive styles for small devices between 392px and 600px */
+@media (min-width: 392px) and (max-width: 600px) {
+  /* Navbar */
+  
+
+  .navbar-logo {
+      font-size: 1.2rem; /* Smaller logo font size */
+  }
+
+  .navbar-menu {
+      flex-direction: column; /* Stack menu items vertically */
+      gap: 10px; /* Reduce gap between menu items */
+  }
+
+  .navbar-link {
+      font-size: 1.2rem; /* Reduce link font size */
+  }
+
+  .section h1 {
+    text-align: center;
+}
+  /* Terms and Conditions */
+  .terms-container {
+      font-size: 0.9rem; /* Slightly smaller font size */
+      padding: 10px; /* Reduced padding for smaller devices */
+  }
+
+  h1 {
+      font-size: 1.5rem; /* Adjust heading font size */
+  }
+
+  /* Fixtures Card */
+  .fixture-card {
+      flex: 0 1 calc(100% - 20px); /* Full-width cards with margin */
+      margin: 10px; /* Add spacing around cards */
+  }
+
+  .fixture-header {
+      font-size: 16px; /* Smaller font size for headers */
+  }
+
+  .teams {
+      font-size: 14px; /* Smaller font size for team details */
+  }
+
+  .time {
+      font-size: 12px; /* Reduce time font size */
+  }
+}
