@@ -462,7 +462,7 @@ h1{
   background-color: #3B5B50;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-image: url('/Trophy.jpg');
+  background-image: url('Trophy.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
