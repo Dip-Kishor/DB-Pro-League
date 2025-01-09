@@ -651,6 +651,19 @@ h1{
     gap: 15px;
   }
   .fixture-card {
-    flex: 0 1 100%; /* Full width cards for small screens */
+    width: 85%;
   }
+  .fixture-table {
+    width: 80%;
+    border-collapse: collapse; /* Ensures table cells are adjacent */
+    margin-top: 20px;
+}
+
+.fixture-table th, .fixture-table td {
+    padding: 10px;
+    text-align: right;
+    border: none; /* Remove border */
+    font-size: 20px;
+    font-weight: bold;
+}
 }
