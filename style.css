@@ -534,7 +534,7 @@ h1{
   content: "";
     position: absolute;
     width: 3px;
-    height: 95px;
+    height: 97px;
     background-color: rgb(250, 7, 7);
     top: 100%;
     left: 50%;
@@ -545,7 +545,7 @@ h1{
 #Qualifier::before {
   content: "";
   position: absolute;
-  width: 240%; /* Adjust to the horizontal distance to Eliminator 2 */
+  width: calc(239% + 2px);
   height: 3px; /* Thickness of the line */
   background-color: rgb(9, 161, 97);
   top: 50%; /* Middle of Qualifier */
@@ -567,7 +567,7 @@ h1{
 #Eliminator1::after {
   content: "";
     position: absolute;
-    width: 2.5px;
+    width: 3px;
     height: 97px;
     background-color: rgb(9, 161, 97);
     top: -59%;
@@ -598,9 +598,9 @@ h1{
   content: "";
     position: absolute;
     width: 3px;
-    height: 93px;
+    height: 95px;
     background-color: rgb(9, 161, 97);
-    top: -93px;
+    top: -95px;
     left: 50%;
     transform: translateX(-50%);
 }
