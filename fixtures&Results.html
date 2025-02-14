@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="cropped_image.png" type="image/x-icon">
+    <link rel="icon" href="cropped_image.png" type="image/x-icon" />
     <title>Fixture</title>
     <link href="style.css" />
   </head>
@@ -29,32 +29,33 @@
       <div id="modal-content-playoff">
         <div class="fixture-card-playoff" id="Qualifier">
           <div>Qualifier</div>
-          Pujan &nbsp;&nbsp; 1 &nbsp;&nbsp; VS &nbsp;&nbsp; 3 &nbsp;&nbsp; Dip
+          1st &nbsp;&nbsp; NaN &nbsp;&nbsp; VS &nbsp;&nbsp; NaN &nbsp;&nbsp; 2nd
           <span id="line-label-Q-F">Winner</span>
           <span id="line-label-Q-E2">Loser</span>
         </div>
         <div class="fixture-card-playoff" id="Eliminator1">
           <div>Eliminator 1</div>
-          Sujan &nbsp;&nbsp; 2 &nbsp;&nbsp; VS &nbsp;&nbsp; 1 &nbsp;&nbsp; Aadhar
+          3rd &nbsp;&nbsp; NaN &nbsp;&nbsp; VS &nbsp;&nbsp; 4th &nbsp;&nbsp; 4th
           <span id="line-label-E1-E2">Winner</span>
         </div>
         <div class="fixture-card-playoff" id="Eliminator2">
           <div>Eliminator 2</div>
-          Sujan &nbsp;&nbsp; 3 &nbsp;&nbsp; VS &nbsp;&nbsp; 2 &nbsp;&nbsp; Pujan
+          L of Q &nbsp;&nbsp; NaN &nbsp;&nbsp; VS &nbsp;&nbsp; NaN &nbsp;&nbsp;W
+          of E2
           <span id="line-label-E2-F">Winner</span>
         </div>
 
         <div class="fixture-card-playoff" id="Final">
           <div>Final</div>
-          Dip &nbsp;&nbsp; 1 &nbsp;&nbsp; VS &nbsp;&nbsp; 0 &nbsp;&nbsp; Sujan
+          W of Q &nbsp;&nbsp; NaN &nbsp;&nbsp; VS &nbsp;&nbsp; NaN &nbsp;&nbsp;W
+          of E1
         </div>
         <div class="fixture-card-final-winner" id="FinalWinner">
           <div class="winner-text">
             <span class="winner-label">Champion</span>
-            <span class="winner-name">Dip</span>
+            <span class="winner-name">W</span>
           </div>
         </div>
-        
       </div>
 
       <span class="close-modal" id="close-modal-playoff">Close</span>
@@ -69,166 +70,166 @@
             (document.getElementById("navbar-placeholder").innerHTML = data)
         );
 
-      const playoffData = [
-        //Qualifier
-        {
-          teamA: "Dip",
-          scoreA: NaN,
-          date: "2025-1-30",
-          time: "12:00 PM",
-          scoreB: NaN,
-          teamB: "Pujan",
-        },
-        //Eliminator 1
-        {
-          teamA: "NaN",
-          scoreA: NaN,
-          date: "2025-1-30",
-          time: "12:00 PM",
-          scoreB: NaN,
-          teamB: "NaN",
-        },
-        //Eliminator 2
-        {
-          teamA: "NaN",
-          scoreA: NaN,
-          date: "2025-1-30",
-          time: "12:00 PM",
-          scoreB: NaN,
-          teamB: "NaN",
-        },
-        //Final
-        {
-          teamA: "NaN",
-          scoreA: NaN,
-          date: "2025-1-30",
-          time: "12:00 PM",
-          scoreB: NaN,
-          teamB: "NaN",
-        },
-      ];
+      // const playoffData = [
+      //   //Qualifier
+      //   {
+      //     teamA: "Pujann",
+      //     scoreA: NaN,
+      //     date: "2025-1-30",
+      //     time: "12:00 PM",
+      //     scoreB: NaN,
+      //     teamB: "Pujan",
+      //   },
+      //   //Eliminator 1
+      //   {
+      //     teamA: "NaN",
+      //     scoreA: NaN,
+      //     date: "2025-1-30",
+      //     time: "12:00 PM",
+      //     scoreB: NaN,
+      //     teamB: "NaN",
+      //   },
+      //   //Eliminator 2
+      //   {
+      //     teamA: "NaN",
+      //     scoreA: NaN,
+      //     date: "2025-1-30",
+      //     time: "12:00 PM",
+      //     scoreB: NaN,
+      //     teamB: "NaN",
+      //   },
+      //   //Final
+      //   {
+      //     teamA: "NaN",
+      //     scoreA: NaN,
+      //     date: "2025-1-30",
+      //     time: "12:00 PM",
+      //     scoreB: NaN,
+      //     teamB: "NaN",
+      //   },
+      // ];
       const fixtureData = [
         //Round 1
         {
           teamA: "Prabesh",
-          scoreA: 2,
+          scoreA: NaN,
           date: "2025-1-20",
           time: "12:00 PM",
-          scoreB: 3,
+          scoreB: NaN,
           teamB: "Ronish",
         },
         {
           teamA: "Roman",
-          scoreA: 1,
+          scoreA: NaN,
           date: "2025-1-20",
           time: "02:00 PM",
-          scoreB: 2,
+          scoreB: NaN,
           teamB: "Pujan",
         },
         {
           teamA: "Dip",
-          scoreA: 4,
+          scoreA: NaN,
           date: "2025-1-20",
           time: "04:00 PM",
-          scoreB: 0,
+          scoreB: NaN,
           teamB: "Aadhar",
         },
         {
           teamA: "Sujan",
-          scoreA: 1,
+          scoreA: NaN,
           date: "2025-1-20",
           time: "06:00 PM",
-          scoreB: 0,
+          scoreB: NaN,
           teamB: "Sudip",
         },
         {
           teamA: "Samrat",
-          scoreA: 1,
+          scoreA: NaN,
           date: "2025-1-20",
           time: "08:00 PM",
-          scoreB: 1,
+          scoreB: NaN,
           teamB: "Bijay",
         },
         //Round 2
         {
           teamA: "Pujan",
-          scoreA: 2,
+          scoreA: NaN,
           date: "2025-1-21",
           time: "12:00 PM",
-          scoreB: 1,
+          scoreB: NaN,
           teamB: "Prabesh",
         },
         {
           teamA: "Aadhar",
-          scoreA: 2,
+          scoreA: NaN,
           date: "2025-1-21",
           time: "02:00 PM",
-          scoreB: 1,
+          scoreB: NaN,
           teamB: "Ronish",
         },
         {
           teamA: "Sudip",
-          scoreA: 2,
+          scoreA: NaN,
           date: "2025-1-21",
           time: "04:00 PM",
-          scoreB: 0,
+          scoreB: NaN,
           teamB: "Roman",
         },
         {
           teamA: "Bijay",
-          scoreA: 1,
+          scoreA: NaN,
           date: "2025-1-21",
           time: "06:00 PM",
-          scoreB: 5,
+          scoreB: NaN,
           teamB: "Dip",
         },
         {
           teamA: "Samrat",
-          scoreA: 1,
+          scoreA: NaN,
           date: "2025-1-21",
           time: "08:00 PM",
-          scoreB: 3,
+          scoreB: NaN,
           teamB: "Sujan",
         },
         //Round 3
         {
           teamA: "Prabesh",
-          scoreA: 2,
+          scoreA: NaN,
           date: "2025-1-22",
           time: "12:00 PM",
-          scoreB: 3,
+          scoreB: NaN,
           teamB: "Aadhar",
         },
         {
           teamA: "Pujan",
-          scoreA: 3,
+          scoreA: NaN,
           date: "2025-1-22",
           time: "02:00 PM",
-          scoreB: 1,
+          scoreB: NaN,
           teamB: "Sudip",
         },
         {
           teamA: "Ronish",
-          scoreA: 1,
+          scoreA: NaN,
           date: "2025-1-22",
           time: "04:00 PM",
-          scoreB: 4,
+          scoreB: NaN,
           teamB: "Bijay",
         },
         {
           teamA: "Roman",
-          scoreA: 2,
+          scoreA: NaN,
           date: "2025-1-22",
           time: "06:00 PM",
-          scoreB: 3,
+          scoreB: NaN,
           teamB: "Samrat",
         },
         {
           teamA: "Dip",
-          scoreA: 3,
+          scoreA: NaN,
           date: "2025-1-22",
           time: "08:00 PM",
-          scoreB: 3,
+          scoreB: NaN,
           teamB: "Sujan",
         },
         //Round 4
