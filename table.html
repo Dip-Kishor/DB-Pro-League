@@ -13,6 +13,15 @@
       <h1>Table</h1>
     </section>
 
+    <!-- Season selector -->
+    <div class="season-selector">
+      <label class="season-select" for="season-dropdown">Select Season:</label>
+      <select id="season-dropdown">
+        <option value="season1">Season 1</option>
+        <option value="season2">Season 2</option>
+      </select>
+    </div>
+
     <div class="table-container">
       <table id="team-table">
         <thead>
@@ -38,108 +47,137 @@
     <script>
       fetch("base.html")
         .then((response) => response.text())
-        .then(
-          (data) =>
-            (document.getElementById("navbar-placeholder").innerHTML = data)
-        );
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
 
-      // Initial data array
-      let teams = [
-        {
-          name: "Aadhar",
-          played: 0,
-          win: 0,
-          draw: 0,
-          lost: 0,
-          gf: 0,
-          ga: 0,
-        },
-        {
-          name: "Bijay",
-          played: 0,
-          win: 0,
-          draw: 0,
-          lost: 0,
-          gf: 0,
-          ga: 0,
-        },
-        {
-          name: "Dip",
-          played: 0,
-          win: 0,
-          draw: 0,
-          lost: 0,
-          gf: 0,
-          ga: 0,
-        },
-        {
-          name: "Prabesh",
-          played: 0,
-          win: 0,
-          draw: 0,
-          lost: 0,
-          gf: 0,
-          ga: 0,
-        },
-        {
-          name: "Pujan",
-          played: 0,
-          win: 0,
-          draw: 0,
-          lost: 0,
-          gf: 0,
-          ga: 0,
-        },
+          // Ensure JavaScript for active link is executed after navbar is loaded
+          const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
+          const navbarLinks = document.querySelectorAll(".navbar-item a"); // Get all navbar links
 
-        {
-          name: "Roman",
-          played: 0,
-          win: 0,
-          draw: 0,
-          lost: 0,
-          gf: 0,
-          ga: 0,
-        },
+          navbarLinks.forEach((link) => {
+            const linkPage = link.getAttribute("href").split("/").pop(); // Get the page name from the href
 
-        {
-          name: "Ronish",
-          played: 0,
-          win: 0,
-          draw: 0,
-          lost: 0,
-          gf: 0,
-          ga: 0,
-        },
-        {
-          name: "Samrat",
-          played: 0,
-          win: 0,
-          draw: 0,
-          lost: 0,
-          gf: 0,
-          ga: 0,
-        },
-        {
-          name: "Sudip",
-          played: 0,
-          win: 0,
-          draw: 0,
-          lost: 0,
-          gf: 0,
-          ga: 0,
-        },
-        {
-          name: "Sujan",
-          played: 0,
-          win: 0,
-          draw: 0,
-          lost: 0,
-          gf: 0,
-          ga: 0,
-        },
+            if (currentPage === linkPage) {
+              link.classList.add("active"); // Add the 'active' class to the current link
+            }
+          });
+        });
 
-        // Add more teams as needed
-      ];
+      // Data for different seasons
+      const seasonData = {
+        season1: [
+          // {
+          //   name: "Aadhar",
+          //   played: 0,
+          //   win: 0,
+          //   draw: 0,
+          //   lost: 0,
+          //   gf: 0,
+          //   ga: 0,
+          // },
+          {
+            name: "Bijay",
+            played: 0,
+            win: 0,
+            draw: 0,
+            lost: 0,
+            gf: 0,
+            ga: 0,
+          },
+          {
+            name: "Dip",
+            played: 0,
+            win: 0,
+            draw: 0,
+            lost: 0,
+            gf: 0,
+            ga: 0,
+          },
+          // {
+          //   name: "Prabesh",
+          //   played: 0,
+          //   win: 0,
+          //   draw: 0,
+          //   lost: 0,
+          //   gf: 0,
+          //   ga: 0,
+          // },
+          {
+            name: "Pujan",
+            played: 0,
+            win: 0,
+            draw: 0,
+            lost: 0,
+            gf: 0,
+            ga: 0,
+          },
+
+          // {
+          //   name: "Roman",
+          //   played: 0,
+          //   win: 0,
+          //   draw: 0,
+          //   lost: 0,
+          //   gf: 0,
+          //   ga: 0,
+          // },
+
+          // {
+          //   name: "Ronish",
+          //   played: 0,
+          //   win: 0,
+          //   draw: 0,
+          //   lost: 0,
+          //   gf: 0,
+          //   ga: 0,
+          // },
+          // {
+          //   name: "Samrat",
+          //   played: 0,
+          //   win: 0,
+          //   draw: 0,
+          //   lost: 0,
+          //   gf: 0,
+          //   ga: 0,
+          // },
+          // {
+          //   name: "Sudip",
+          //   played: 0,
+          //   win: 0,
+          //   draw: 0,
+          //   lost: 0,
+          //   gf: 0,
+          //   ga: 0,
+          // },
+          // {
+          //   name: "Sujan",
+          //   played: 0,
+          //   win: 0,
+          //   draw: 0,
+          //   lost: 0,
+          //   gf: 0,
+          //   ga: 0,
+          // },
+        ],
+        season2: [
+          {
+            name: "Team A",
+            played: 0,
+            win: 0,
+            draw: 0,
+            lost: 0,
+            gf: 0,
+            ga: 0,
+          },
+          { name: "Team B", played: 0, win: 0, draw: 0, lost: 0, gf: 0, ga: 0 },
+          { name: "Team C", played: 0, win: 0, draw: 0, lost: 0, gf: 0, ga: 0 },
+          // Add more teams as needed
+        ],
+      };
+
+      // Set the initial season
+      let selectedSeason = "season1";
+      let teams = seasonData[selectedSeason]; // Initial teams data for Season 1
 
       // Function to calculate GD and points
       function calculateGDAndPoints(team) {
@@ -191,6 +229,15 @@
           tableBody.appendChild(row);
         });
       }
+
+      // Event listener to handle season change
+      document
+        .getElementById("season-dropdown")
+        .addEventListener("change", (event) => {
+          selectedSeason = event.target.value; // Update selected season
+          teams = seasonData[selectedSeason]; // Update teams data based on the selected season
+          renderTable(); // Re-render the table with the new season data
+        });
 
       // Initial render
       renderTable();

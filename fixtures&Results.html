@@ -13,6 +13,14 @@
       <h1>Fixture & Result</h1>
       <h3 id="playoff">Playoffs</h3>
     </section>
+    <div class="season-selector">
+      <label class="season-select" for="season-dropdown">Select Season:</label>
+      <select id="season-dropdown">
+        <option value="season1">Season 1</option>
+        <option value="season2">Season 2</option>
+      </select>
+    </div>
+
     <div class="fixtures" id="fixtures-container"></div>
 
     <!-- Modal for Team History -->
@@ -25,31 +33,45 @@
     <!-- Modal for playoffs -->
     <div class="modal-playoff" id="modal-playoff"></div>
     <div class="modal" id="playoff-modal">
-      <h2 id="modal-title-playoff"></h2>
+      <h2 id="modal-title-playoff">Playoff Bracket</h2>
       <div id="modal-content-playoff">
         <div class="fixture-card-playoff" id="Qualifier">
           <div>Qualifier</div>
-          1st &nbsp;&nbsp; NaN &nbsp;&nbsp; VS &nbsp;&nbsp; NaN &nbsp;&nbsp; 2nd
-          <span id="line-label-Q-F">Winner</span>
-          <span id="line-label-Q-E2">Loser</span>
+
+          <span class="team1">1st</span>&nbsp;&nbsp;
+          <span class="score1">NaN</span>
+          &nbsp;&nbsp; VS &nbsp;&nbsp;
+          <span class="score2">NaN</span> &nbsp;&nbsp;
+          <span class="team2">2nd</span>
         </div>
+
         <div class="fixture-card-playoff" id="Eliminator1">
           <div>Eliminator 1</div>
-          3rd &nbsp;&nbsp; NaN &nbsp;&nbsp; VS &nbsp;&nbsp; 4th &nbsp;&nbsp; 4th
-          <span id="line-label-E1-E2">Winner</span>
+          <span class="team1">3rd</span>&nbsp;&nbsp;
+          <span class="score1">NaN</span>
+          &nbsp;&nbsp; VS &nbsp;&nbsp;
+          <span class="score2">NaN</span> &nbsp;&nbsp;
+          <span class="team2">4th</span>
         </div>
+
         <div class="fixture-card-playoff" id="Eliminator2">
           <div>Eliminator 2</div>
-          L of Q &nbsp;&nbsp; NaN &nbsp;&nbsp; VS &nbsp;&nbsp; NaN &nbsp;&nbsp;W
-          of E2
-          <span id="line-label-E2-F">Winner</span>
+          <span class="team1">L of Q</span>&nbsp;&nbsp;
+          <span class="score1">NaN</span>
+          &nbsp;&nbsp; VS &nbsp;&nbsp;
+          <span class="score2">NaN</span> &nbsp;&nbsp;
+          <span class="team2">W of E1</span>
         </div>
 
         <div class="fixture-card-playoff" id="Final">
           <div>Final</div>
-          W of Q &nbsp;&nbsp; NaN &nbsp;&nbsp; VS &nbsp;&nbsp; NaN &nbsp;&nbsp;W
-          of E1
+          <span class="team1">W of Q</span>&nbsp;&nbsp;
+          <span class="score1">NaN</span>
+          &nbsp;&nbsp; VS &nbsp;&nbsp;
+          <span class="score2">NaN</span> &nbsp;&nbsp;
+          <span class="team2">W of E2</span>
         </div>
+
         <div class="fixture-card-final-winner" id="FinalWinner">
           <div class="winner-text">
             <span class="winner-label">Champion</span>
@@ -65,426 +87,420 @@
       // Fetch and insert navbar
       fetch("base.html")
         .then((response) => response.text())
-        .then(
-          (data) =>
-            (document.getElementById("navbar-placeholder").innerHTML = data)
-        );
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
 
-      // const playoffData = [
-      //   //Qualifier
-      //   {
-      //     teamA: "Pujann",
-      //     scoreA: NaN,
-      //     date: "2025-1-30",
-      //     time: "12:00 PM",
-      //     scoreB: NaN,
-      //     teamB: "Pujan",
-      //   },
-      //   //Eliminator 1
-      //   {
-      //     teamA: "NaN",
-      //     scoreA: NaN,
-      //     date: "2025-1-30",
-      //     time: "12:00 PM",
-      //     scoreB: NaN,
-      //     teamB: "NaN",
-      //   },
-      //   //Eliminator 2
-      //   {
-      //     teamA: "NaN",
-      //     scoreA: NaN,
-      //     date: "2025-1-30",
-      //     time: "12:00 PM",
-      //     scoreB: NaN,
-      //     teamB: "NaN",
-      //   },
-      //   //Final
-      //   {
-      //     teamA: "NaN",
-      //     scoreA: NaN,
-      //     date: "2025-1-30",
-      //     time: "12:00 PM",
-      //     scoreB: NaN,
-      //     teamB: "NaN",
-      //   },
-      // ];
+          // Ensure JavaScript for active link is executed after navbar is loaded
+          const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
+          const navbarLinks = document.querySelectorAll(".navbar-item a"); // Get all navbar links
+
+          navbarLinks.forEach((link) => {
+            const linkPage = link.getAttribute("href").split("/").pop(); // Get the page name from the href
+
+            if (currentPage === linkPage) {
+              link.classList.add("active"); // Add the 'active' class to the current link
+            }
+          });
+        });
+
       const fixtureData = [
         //Round 1
-        {
-          teamA: "Prabesh",
-          scoreA: NaN,
-          date: "2025-1-20",
-          time: "12:00 PM",
-          scoreB: NaN,
-          teamB: "Ronish",
-        },
-        {
-          teamA: "Roman",
-          scoreA: NaN,
-          date: "2025-1-20",
-          time: "02:00 PM",
-          scoreB: NaN,
-          teamB: "Pujan",
-        },
-        {
-          teamA: "Dip",
-          scoreA: NaN,
-          date: "2025-1-20",
-          time: "04:00 PM",
-          scoreB: NaN,
-          teamB: "Aadhar",
-        },
-        {
-          teamA: "Sujan",
-          scoreA: NaN,
-          date: "2025-1-20",
-          time: "06:00 PM",
-          scoreB: NaN,
-          teamB: "Sudip",
-        },
-        {
-          teamA: "Samrat",
-          scoreA: NaN,
-          date: "2025-1-20",
-          time: "08:00 PM",
-          scoreB: NaN,
-          teamB: "Bijay",
-        },
-        //Round 2
-        {
-          teamA: "Pujan",
-          scoreA: NaN,
-          date: "2025-1-21",
-          time: "12:00 PM",
-          scoreB: NaN,
-          teamB: "Prabesh",
-        },
-        {
-          teamA: "Aadhar",
-          scoreA: NaN,
-          date: "2025-1-21",
-          time: "02:00 PM",
-          scoreB: NaN,
-          teamB: "Ronish",
-        },
-        {
-          teamA: "Sudip",
-          scoreA: NaN,
-          date: "2025-1-21",
-          time: "04:00 PM",
-          scoreB: NaN,
-          teamB: "Roman",
-        },
-        {
-          teamA: "Bijay",
-          scoreA: NaN,
-          date: "2025-1-21",
-          time: "06:00 PM",
-          scoreB: NaN,
-          teamB: "Dip",
-        },
-        {
-          teamA: "Samrat",
-          scoreA: NaN,
-          date: "2025-1-21",
-          time: "08:00 PM",
-          scoreB: NaN,
-          teamB: "Sujan",
-        },
-        //Round 3
-        {
-          teamA: "Prabesh",
-          scoreA: NaN,
-          date: "2025-1-22",
-          time: "12:00 PM",
-          scoreB: NaN,
-          teamB: "Aadhar",
-        },
-        {
-          teamA: "Pujan",
-          scoreA: NaN,
-          date: "2025-1-22",
-          time: "02:00 PM",
-          scoreB: NaN,
-          teamB: "Sudip",
-        },
-        {
-          teamA: "Ronish",
-          scoreA: NaN,
-          date: "2025-1-22",
-          time: "04:00 PM",
-          scoreB: NaN,
-          teamB: "Bijay",
-        },
-        {
-          teamA: "Roman",
-          scoreA: NaN,
-          date: "2025-1-22",
-          time: "06:00 PM",
-          scoreB: NaN,
-          teamB: "Samrat",
-        },
-        {
-          teamA: "Dip",
-          scoreA: NaN,
-          date: "2025-1-22",
-          time: "08:00 PM",
-          scoreB: NaN,
-          teamB: "Sujan",
-        },
-        //Round 4
-        {
-          teamA: "Bijay",
-          scoreA: NaN,
-          date: "2025-1-23",
-          time: "12:00 PM",
-          scoreB: NaN,
-          teamB: "Aadhar",
-        },
-        {
-          teamA: "Samrat",
-          scoreA: NaN,
-          date: "2025-1-23",
-          time: "02:00 PM",
-          scoreB: NaN,
-          teamB: "Pujan",
-        },
-        {
-          teamA: "Sudip",
-          scoreA: NaN,
-          date: "2025-1-23",
-          time: "04:00 PM",
-          scoreB: NaN,
-          teamB: "Prabesh",
-        },
-        {
-          teamA: "Sujan",
-          scoreA: NaN,
-          date: "2025-1-23",
-          time: "06:00 PM",
-          scoreB: NaN,
-          teamB: "Ronish",
-        },
-        {
-          teamA: "Dip",
-          scoreA: NaN,
-          date: "2025-1-23",
-          time: "08:00 PM",
-          scoreB: NaN,
-          teamB: "Roman",
-        },
-        //Round 5
-        {
-          teamA: "Sudip",
-          scoreA: NaN,
-          date: "2025-1-24",
-          time: "12:00 PM",
-          scoreB: NaN,
-          teamB: "Samrat",
-        },
-        {
-          teamA: "Prabesh",
-          scoreA: NaN,
-          date: "2025-1-24",
-          time: "02:00 PM",
-          scoreB: NaN,
-          teamB: "Bijay",
-        },
-        {
-          teamA: "Aadhar",
-          scoreA: NaN,
-          date: "2025-1-24",
-          time: "04:00 PM",
-          scoreB: NaN,
-          teamB: "Sujan",
-        },
-        {
-          teamA: "Pujan",
-          scoreA: NaN,
-          date: "2025-1-24",
-          time: "06:00 PM",
-          scoreB: NaN,
-          teamB: "Dip",
-        },
-        {
-          teamA: "Ronish",
-          scoreA: NaN,
-          date: "2025-1-24",
-          time: "08:00 PM",
-          scoreB: NaN,
-          teamB: "Roman",
-        },
-        //Round 6
-        {
-          teamA: "Samrat",
-          scoreA: NaN,
-          date: "2025-1-25",
-          time: "12:00 PM",
-          scoreB: NaN,
-          teamB: "Prabesh",
-        },
-        {
-          teamA: "Sujan",
-          scoreA: NaN,
-          date: "2025-1-25",
-          time: "02:00 PM",
-          scoreB: NaN,
-          teamB: "Bijay",
-        },
-        {
-          teamA: "Dip",
-          scoreA: NaN,
-          date: "2025-1-25",
-          time: "04:00 PM",
-          scoreB: NaN,
-          teamB: "Sudip",
-        },
-        {
-          teamA: "Roman",
-          scoreA: NaN,
-          date: "2025-1-25",
-          time: "06:00 PM",
-          scoreB: NaN,
-          teamB: "Aadhar",
-        },
-        {
-          teamA: "Ronish",
-          scoreA: NaN,
-          date: "2025-1-25",
-          time: "08:00 PM",
-          scoreB: NaN,
-          teamB: "Pujan",
-        },
-        //Round 7
-        {
-          teamA: "Samrat",
-          scoreA: NaN,
-          date: "2025-1-26",
-          time: "12:00 PM",
-          scoreB: NaN,
-          teamB: "Dip",
-        },
-        {
-          teamA: "Prabesh",
-          scoreA: NaN,
-          date: "2025-1-26",
-          time: "02:00 PM",
-          scoreB: NaN,
-          teamB: "Sujan",
-        },
-        {
-          teamA: "Bijay",
-          scoreA: NaN,
-          date: "2025-1-26",
-          time: "04:00 PM",
-          scoreB: NaN,
-          teamB: "Roman",
-        },
-        {
-          teamA: "Sudip",
-          scoreA: NaN,
-          date: "2025-1-26",
-          time: "06:00 PM",
-          scoreB: NaN,
-          teamB: "Ronish",
-        },
-        {
-          teamA: "Aadhar",
-          scoreA: NaN,
-          date: "2025-1-26",
-          time: "08:00 PM",
-          scoreB: NaN,
-          teamB: "Pujan",
-        },
-        //Round 8
-        {
-          teamA: "Dip",
-          scoreA: NaN,
-          date: "2025-1-27",
-          time: "12:00 PM",
-          scoreB: NaN,
-          teamB: "Prabesh",
-        },
-        {
-          teamA: "Roman",
-          scoreA: NaN,
-          date: "2025-1-27",
-          time: "02:00 PM",
-          scoreB: NaN,
-          teamB: "Sujan",
-        },
-        {
-          teamA: "Ronish",
-          scoreA: NaN,
-          date: "2025-1-27",
-          time: "04:00 PM",
-          scoreB: NaN,
-          teamB: "Samrat",
-        },
-        {
-          teamA: "Pujan",
-          scoreA: NaN,
-          date: "2025-1-27",
-          time: "06:00 PM",
-          scoreB: NaN,
-          teamB: "Bijay",
-        },
-        {
-          teamA: "Aadhar",
-          scoreA: NaN,
-          date: "2025-1-27",
-          time: "08:00 PM",
-          scoreB: NaN,
-          teamB: "Sudip",
-        },
-        //Round 9
-        {
-          teamA: "Sujan",
-          scoreA: NaN,
-          date: "2025-1-28",
-          time: "12:00 PM",
-          scoreB: NaN,
-          teamB: "Pujan",
-        },
-        {
-          teamA: "Dip",
-          scoreA: NaN,
-          date: "2025-1-28",
-          time: "02:00 PM",
-          scoreB: NaN,
-          teamB: "Ronish",
-        },
-        {
-          teamA: "Prabesh",
-          scoreA: NaN,
-          date: "2025-1-28",
-          time: "04:00 PM",
-          scoreB: NaN,
-          teamB: "Roman",
-        },
-        {
-          teamA: "Samrat",
-          scoreA: NaN,
-          date: "2025-1-28",
-          time: "06:00 PM",
-          scoreB: NaN,
-          teamB: "Aadhar",
-        },
-        {
-          teamA: "Bijay",
-          scoreA: NaN,
-          date: "2025-1-28",
-          time: "08:00 PM",
-          scoreB: NaN,
-          teamB: "Sudip",
-        },
       ];
+      const seasonData = {
+        season1: [
+          // {
+          //   teamA: "Prabesh",
+          //   scoreA: NaN,
+          //   date: "2025-1-20",
+          //   time: "12:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Ronish",
+          // },
+          // {
+          //   teamA: "Roman",
+          //   scoreA: NaN,
+          //   date: "2025-1-20",
+          //   time: "02:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Pujan",
+          // },
+          // {
+          //   teamA: "Dip",
+          //   scoreA: NaN,
+          //   date: "2025-1-20",
+          //   time: "04:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Aadhar",
+          // },
+          // {
+          //   teamA: "Sujan",
+          //   scoreA: NaN,
+          //   date: "2025-1-20",
+          //   time: "06:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Sudip",
+          // },
+          // {
+          //   teamA: "Samrat",
+          //   scoreA: NaN,
+          //   date: "2025-1-20",
+          //   time: "08:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Bijay",
+          // },
+          // //Round 2
+          // {
+          //   teamA: "Pujan",
+          //   scoreA: NaN,
+          //   date: "2025-1-21",
+          //   time: "12:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Prabesh",
+          // },
+          // {
+          //   teamA: "Aadhar",
+          //   scoreA: NaN,
+          //   date: "2025-1-21",
+          //   time: "02:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Ronish",
+          // },
+          // {
+          //   teamA: "Sudip",
+          //   scoreA: NaN,
+          //   date: "2025-1-21",
+          //   time: "04:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Roman",
+          // },
+          // {
+          //   teamA: "Bijay",
+          //   scoreA: NaN,
+          //   date: "2025-1-21",
+          //   time: "06:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Dip",
+          // },
+          // {
+          //   teamA: "Samrat",
+          //   scoreA: NaN,
+          //   date: "2025-1-21",
+          //   time: "08:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Sujan",
+          // },
+          // //Round 3
+          // {
+          //   teamA: "Prabesh",
+          //   scoreA: NaN,
+          //   date: "2025-1-22",
+          //   time: "12:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Aadhar",
+          // },
+          // {
+          //   teamA: "Pujan",
+          //   scoreA: NaN,
+          //   date: "2025-1-22",
+          //   time: "02:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Sudip",
+          // },
+          // {
+          //   teamA: "Ronish",
+          //   scoreA: NaN,
+          //   date: "2025-1-22",
+          //   time: "04:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Bijay",
+          // },
+          // {
+          //   teamA: "Roman",
+          //   scoreA: NaN,
+          //   date: "2025-1-22",
+          //   time: "06:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Samrat",
+          // },
+          // {
+          //   teamA: "Dip",
+          //   scoreA: NaN,
+          //   date: "2025-1-22",
+          //   time: "08:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Sujan",
+          // },
+          // //Round 4
+          // {
+          //   teamA: "Bijay",
+          //   scoreA: NaN,
+          //   date: "2025-1-23",
+          //   time: "12:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Aadhar",
+          // },
+          // {
+          //   teamA: "Samrat",
+          //   scoreA: NaN,
+          //   date: "2025-1-23",
+          //   time: "02:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Pujan",
+          // },
+          // {
+          //   teamA: "Sudip",
+          //   scoreA: NaN,
+          //   date: "2025-1-23",
+          //   time: "04:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Prabesh",
+          // },
+          // {
+          //   teamA: "Sujan",
+          //   scoreA: NaN,
+          //   date: "2025-1-23",
+          //   time: "06:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Ronish",
+          // },
+          // {
+          //   teamA: "Dip",
+          //   scoreA: NaN,
+          //   date: "2025-1-23",
+          //   time: "08:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Roman",
+          // },
+          // //Round 5
+          // {
+          //   teamA: "Sudip",
+          //   scoreA: NaN,
+          //   date: "2025-1-24",
+          //   time: "12:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Samrat",
+          // },
+          // {
+          //   teamA: "Prabesh",
+          //   scoreA: NaN,
+          //   date: "2025-1-24",
+          //   time: "02:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Bijay",
+          // },
+          // {
+          //   teamA: "Aadhar",
+          //   scoreA: NaN,
+          //   date: "2025-1-24",
+          //   time: "04:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Sujan",
+          // },
+          // {
+          //   teamA: "Pujan",
+          //   scoreA: NaN,
+          //   date: "2025-1-24",
+          //   time: "06:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Dip",
+          // },
+          // {
+          //   teamA: "Ronish",
+          //   scoreA: NaN,
+          //   date: "2025-1-24",
+          //   time: "08:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Roman",
+          // },
+          // //Round 6
+          // {
+          //   teamA: "Samrat",
+          //   scoreA: NaN,
+          //   date: "2025-1-25",
+          //   time: "12:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Prabesh",
+          // },
+          // {
+          //   teamA: "Sujan",
+          //   scoreA: NaN,
+          //   date: "2025-1-25",
+          //   time: "02:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Bijay",
+          // },
+          // {
+          //   teamA: "Dip",
+          //   scoreA: NaN,
+          //   date: "2025-1-25",
+          //   time: "04:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Sudip",
+          // },
+          // {
+          //   teamA: "Roman",
+          //   scoreA: NaN,
+          //   date: "2025-1-25",
+          //   time: "06:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Aadhar",
+          // },
+          // {
+          //   teamA: "Ronish",
+          //   scoreA: NaN,
+          //   date: "2025-1-25",
+          //   time: "08:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Pujan",
+          // },
+          // //Round 7
+          // {
+          //   teamA: "Samrat",
+          //   scoreA: NaN,
+          //   date: "2025-1-26",
+          //   time: "12:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Dip",
+          // },
+          // {
+          //   teamA: "Prabesh",
+          //   scoreA: NaN,
+          //   date: "2025-1-26",
+          //   time: "02:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Sujan",
+          // },
+          // {
+          //   teamA: "Bijay",
+          //   scoreA: NaN,
+          //   date: "2025-1-26",
+          //   time: "04:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Roman",
+          // },
+          // {
+          //   teamA: "Sudip",
+          //   scoreA: NaN,
+          //   date: "2025-1-26",
+          //   time: "06:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Ronish",
+          // },
+          // {
+          //   teamA: "Aadhar",
+          //   scoreA: NaN,
+          //   date: "2025-1-26",
+          //   time: "08:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Pujan",
+          // },
+          // //Round 8
+          // {
+          //   teamA: "Dip",
+          //   scoreA: NaN,
+          //   date: "2025-1-27",
+          //   time: "12:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Prabesh",
+          // },
+          // {
+          //   teamA: "Roman",
+          //   scoreA: NaN,
+          //   date: "2025-1-27",
+          //   time: "02:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Sujan",
+          // },
+          // {
+          //   teamA: "Ronish",
+          //   scoreA: NaN,
+          //   date: "2025-1-27",
+          //   time: "04:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Samrat",
+          // },
+          // {
+          //   teamA: "Pujan",
+          //   scoreA: NaN,
+          //   date: "2025-1-27",
+          //   time: "06:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Bijay",
+          // },
+          // {
+          //   teamA: "Aadhar",
+          //   scoreA: NaN,
+          //   date: "2025-1-27",
+          //   time: "08:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Sudip",
+          // },
+          // //Round 9
+          // {
+          //   teamA: "Sujan",
+          //   scoreA: NaN,
+          //   date: "2025-1-28",
+          //   time: "12:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Pujan",
+          // },
+          // {
+          //   teamA: "Dip",
+          //   scoreA: NaN,
+          //   date: "2025-1-28",
+          //   time: "02:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Ronish",
+          // },
+          // {
+          //   teamA: "Prabesh",
+          //   scoreA: NaN,
+          //   date: "2025-1-28",
+          //   time: "04:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Roman",
+          // },
+          // {
+          //   teamA: "Samrat",
+          //   scoreA: NaN,
+          //   date: "2025-1-28",
+          //   time: "06:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Aadhar",
+          // },
+          // {
+          //   teamA: "Bijay",
+          //   scoreA: NaN,
+          //   date: "2025-1-28",
+          //   time: "08:00 PM",
+          //   scoreB: NaN,
+          //   teamB: "Sudip",
+          // },
+          {
+            teamA: "A",
+            scoreA: NaN,
+            date: "2025-1-28",
+            time: "08:00 PM",
+            scoreB: NaN,
+            teamB: "B",
+          },
+          {
+            teamA: "C",
+            scoreA: NaN,
+            date: "2025-1-28",
+            time: "08:00 PM",
+            scoreB: NaN,
+            teamB: "D",
+          },
+        ],
+        season2: [],
+      };
 
-      function renderFixtures(data) {
+      function renderFixtures(seasonKey) {
+        const data = seasonData[seasonKey] || [];
         const container = document.getElementById("fixtures-container");
-        container.innerHTML = ""; // Clear existing content
+        container.innerHTML = ""; // Clear previous fixtures
 
-        // Group fixtures by date
         const fixturesByDate = data.reduce((acc, fixture) => {
           if (!acc[fixture.date]) {
             acc[fixture.date] = [];
@@ -493,57 +509,48 @@
           return acc;
         }, {});
 
-        let roundNumber = 1; // Initialize round number
-
-        // Render grouped fixtures
+        let roundNumber = 1;
         Object.keys(fixturesByDate).forEach((date) => {
           const card = document.createElement("div");
           card.className = "fixture-card";
-
           card.innerHTML = `
-      <div class="fixture-header">
-        <span>Round ${roundNumber}</span>
-        <span>${date}</span>
-      </div>
-      <div class="fixture-details">
-        <table class="fixture-table">
-          <thead>
-            
-          </thead>
-          <tbody>
-            ${fixturesByDate[date]
-              .map(
-                (fixture) => `
-                <tr>
-                  <td class="team" style="text-align:left;" data-team="${
-                    fixture.teamA
-                  }">${fixture.teamA}</td>
-                  <td class="score" style="text-align:center;">${
-                    isNaN(fixture.scoreA) ? "-" : fixture.scoreA
-                  }</td>
-                  <td class="vs" style="text-align:center;">vs</td>
-                  <td class="score" style="text-align:center;">${
-                    isNaN(fixture.scoreB) ? "-" : fixture.scoreB
-                  }</td>
-                  <td class="team" style="text-align:right;" data-team="${
-                    fixture.teamB
-                  }">${fixture.teamB}</td>
-                  <td class="time" style="text-align:right;">${
-                    fixture.time
-                  }</td>
-                </tr>`
-              )
-              .join("")}
-          </tbody>
-        </table>
-      </div>
-    `;
-
+    <div class="fixture-header">
+      <span>Round ${roundNumber}</span>
+      <span>${date}</span>
+    </div>
+    <div class="fixture-details">
+      <table class="fixture-table">
+        <tbody>
+          ${fixturesByDate[date]
+            .map(
+              (fixture) => `
+              <tr>
+                <td class="team" data-team="${fixture.teamA}">${
+                fixture.teamA
+              }</td>
+                <td class="score">${
+                  isNaN(fixture.scoreA) ? "-" : fixture.scoreA
+                }</td>
+                <td class="vs">vs</td>
+                <td class="score">${
+                  isNaN(fixture.scoreB) ? "-" : fixture.scoreB
+                }</td>
+                <td class="team" data-team="${fixture.teamB}">${
+                fixture.teamB
+              }</td>
+                <td class="time">${fixture.time}</td>
+              </tr>`
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
           container.appendChild(card);
-          roundNumber++; // Increment round number for each date
+          roundNumber++;
         });
 
-        // Add click listeners to team names
+        // Reattach event listeners for team name clicks after rendering
         document.querySelectorAll(".team").forEach((teamElement) => {
           teamElement.addEventListener("click", (event) => {
             const teamName = event.target.getAttribute("data-team");
@@ -552,49 +559,89 @@
         });
       }
 
-      // Function to show team history in a modal
-      function showTeamHistory(team) {
+      // Event listener for dropdown change
+      document
+        .getElementById("season-dropdown")
+        .addEventListener("change", function () {
+          renderFixtures(this.value);
+        });
+
+      // Track the selected season key
+      let seasonKey = document.getElementById("season-dropdown").value;
+
+      // Update the seasonKey when the dropdown changes
+      document
+        .getElementById("season-dropdown")
+        .addEventListener("change", function () {
+          seasonKey = this.value; // Update seasonKey based on dropdown selection
+          renderFixtures(seasonKey); // Optionally rerender the fixtures for the new season
+        });
+
+      // Event delegation: Wait for fixtures to be rendered, then bind the event listener to team elements
+      document
+        .getElementById("fixtures-container")
+        .addEventListener("click", function (event) {
+          if (event.target && event.target.classList.contains("team")) {
+            const teamName = event.target.getAttribute("data-team");
+            showTeamHistory(teamName, seasonKey); // Pass the current seasonKey
+          }
+        });
+
+      function showTeamHistory(team, seasonKey) {
         const modal = document.getElementById("team-history-modal");
         const overlay = document.getElementById("modal-overlay");
         const modalTitle = document.getElementById("modal-title");
         const modalContent = document.getElementById("modal-content");
 
+        // Get the current season data using seasonKey
+        const data = seasonData[seasonKey] || [];
+        console.log(data);
+        console.log("SeasonKey", seasonKey); // Check if seasonKey is correctly passed
+
         // Filter fixtures for the selected team
-        const teamFixtures = fixtureData.filter(
+        const teamFixtures = data.filter(
           (fixture) => fixture.teamA === team || fixture.teamB === team
         );
 
-        // Set modal content
-        modalTitle.textContent = `${team}'s Record`;
-        modalContent.innerHTML = teamFixtures
-          .map((fixture) => {
-            const isVictory =
-              (fixture.teamA === team && fixture.scoreA > fixture.scoreB) ||
-              (fixture.teamB === team && fixture.scoreB > fixture.scoreA);
-            const isDraw = fixture.scoreA === fixture.scoreB; // Check for draw
-            const resultClass = isVictory ? "win" : isDraw ? "draw" : "loss";
-            const resultText = isVictory ? "Win" : isDraw ? "Draw" : "Loss";
+        // Log the filtered fixtures to ensure they exist
+        console.log("Team Fixtures:", teamFixtures);
 
-            // Check for NaN scores
-            const isNaNScore = isNaN(fixture.scoreA) || isNaN(fixture.scoreB);
-            const resultClassWithNaN = isNaNScore ? "NP" : resultClass;
-            const resultTextWithNaN = isNaNScore ? "No Result" : resultText;
+        // If no fixtures are found for the team, show a message
+        if (teamFixtures.length === 0) {
+          modalContent.innerHTML = `<p>No fixtures found for ${team}.</p>`;
+        } else {
+          // Set modal content
+          modalTitle.textContent = `${team}'s Record`;
+          modalContent.innerHTML = teamFixtures
+            .map((fixture) => {
+              const isVictory =
+                (fixture.teamA === team && fixture.scoreA > fixture.scoreB) ||
+                (fixture.teamB === team && fixture.scoreB > fixture.scoreA);
+              const isDraw = fixture.scoreA === fixture.scoreB; // Check for draw
+              const resultClass = isVictory ? "win" : isDraw ? "draw" : "loss";
+              const resultText = isVictory ? "Win" : isDraw ? "Draw" : "Loss";
 
-            return `
-        <div class="history-card ${resultClassWithNaN}" }">
-          <span>${fixture.date}&nbsp;&nbsp; ${fixture.time}</span>
-          <div>
-            ${fixture.teamA}&nbsp; ${
-              isNaNScore ? "N/A" : fixture.scoreA
-            }&nbsp; vs &nbsp;${isNaNScore ? "N/A" : fixture.scoreB} &nbsp;${
-              fixture.teamB
-            } 
-            <strong> - ${resultTextWithNaN}</strong>
-          </div>
+              // Check for NaN scores
+              const isNaNScore = isNaN(fixture.scoreA) || isNaN(fixture.scoreB);
+              const resultClassWithNaN = isNaNScore ? "NP" : resultClass;
+              const resultTextWithNaN = isNaNScore ? "No Result" : resultText;
+
+              return `
+      <div class="history-card ${resultClassWithNaN}">
+        <span>${fixture.date}&nbsp;&nbsp; ${fixture.time}</span>
+        <div>
+          ${fixture.teamA}&nbsp; ${
+                isNaNScore ? "N/A" : fixture.scoreA
+              }&nbsp; vs &nbsp;${isNaNScore ? "N/A" : fixture.scoreB} &nbsp;${
+                fixture.teamB
+              } 
+          <strong> - ${resultTextWithNaN}</strong>
         </div>
-      `;
-          })
-          .join("");
+      </div>
+    `;
+            })
+            .join("");
+        }
 
         // Open modal
         modal.classList.add("open");
@@ -640,6 +687,93 @@
         overlay.classList.add("open");
       }
 
+      // Data for multiple seasons
+      const playoffSeasons = {
+        season1: {
+          Qualifier: {
+            team1: "1st",
+            team2: "2nd",
+            teamAScore: "NaN",
+            teamBScore: "NaN",
+          },
+          Eliminator1: {
+            team1: "3rd",
+            team2: "4th",
+            teamAScore: "NaN",
+            teamBScore: "NaN",
+          },
+          Eliminator2: {
+            team1: "L of Q",
+            team2: "W of E1",
+            teamAScore: "NaN",
+            teamBScore: "NaN",
+          },
+          Final: {
+            team1: "W of Q",
+            team2: "W of E2",
+            teamAScore: "NaN",
+            teamBScore: "NaN",
+          },
+          Champion: { name: "Winner of Final" },
+        },
+        season2: {
+          Qualifier: {
+            team1: "Team X",
+            team2: "Team Y",
+            teamAScore: "3",
+            teamBScore: "2",
+          },
+          Eliminator1: {
+            team1: "Team Z",
+            team2: "Team W",
+            teamAScore: "1",
+            teamBScore: "2",
+          },
+          Eliminator2: {
+            team1: "Loser Q",
+            team2: "Winner E1",
+            teamAScore: "2",
+            teamBScore: "3",
+          },
+          Final: {
+            team1: "Winner Q",
+            team2: "Winner E2",
+            teamAScore: "1",
+            teamBScore: "2",
+          },
+          Champion: { name: "Winner of Final S2" },
+        },
+      };
+
+      // Function to update team names and scores dynamically
+      function updatePlayoffBracket(season) {
+        const data = playoffSeasons[season];
+
+        Object.keys(data).forEach((key) => {
+          if (document.getElementById(key)) {
+            const match = document.getElementById(key);
+            match.querySelector(".team1").innerText = data[key].team1;
+            match.querySelector(".team2").innerText = data[key].team2;
+            match.querySelector(".score1").innerText = data[key].teamAScore;
+            match.querySelector(".score2").innerText = data[key].teamBScore;
+          }
+        });
+
+        // Update the champion name
+        document.querySelector("#FinalWinner .winner-name").innerText =
+          data.Champion.name;
+      }
+
+      // Listen for season selection changes
+      document
+        .getElementById("season-dropdown")
+        .addEventListener("change", function () {
+          updatePlayoffBracket(this.value);
+        });
+
+      // Initialize with default season (Season 1)
+      updatePlayoffBracket("season1");
+
       // Close Playoff Modal
       document
         .getElementById("close-modal-playoff")
@@ -648,13 +782,19 @@
           document.getElementById("modal-overlay").classList.remove("open");
         });
 
+      // Open Playoff Modal
+      document.getElementById("playoff").addEventListener("click", () => {
+        document.getElementById("playoff-modal").classList.add("open");
+        document.getElementById("modal-overlay").classList.add("open");
+      });
+
       // Add event listener to the Playoff heading
       document
         .getElementById("playoff")
         .addEventListener("click", showPlayoffModal);
 
       // Render fixtures
-      renderFixtures(fixtureData);
+      renderFixtures("season1");
     </script>
   </body>
 </html>

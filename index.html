@@ -1,66 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="cropped_image.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="cropped_image.png" type="image/x-icon" />
     <title>Home</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div id="navbar-placeholder"></div>
 
     <section class="section">
-        <h1>Home</h1>
+      <h1>Home</h1>
     </section>
     <div class="terms-container">
-        <h1>Terms and Conditions</h1>
-        <ol class="terms-list">
-            <li>
-                <strong>Tournament Discord Server:</strong>
-                Each player must join the tournament Discord server. Failure to do so will result in disqualification.
-            </li>
-            <li>
-                <strong>Face Camera Requirement:</strong>
-                Players must have access to a face camera. Face cameras must remain on during the game.
-            </li>
-            <li>
-                <strong>Screen Sharing:</strong>
-                One of the players is required to share their screen in Discord during gameplay.
-            </li>
-            <li>
-                <strong>Connection Failures:</strong>
-                Connection failures caused by call interruptions, messages, notifications, etc., will not be considered.
-            </li>
-            <li>
-                <strong>Punctuality:</strong>
-                The tournament schedule is fixed. Players must be available at the specified time; otherwise, their opponent will be declared the winner of that match.
-            </li>
-            <li>
-                <strong>Unavailability:</strong>
-                If both players are unavailable during the scheduled match, they will each receive zero points.
-            </li>
-            <li>
-                <strong>Registration and Payment:</strong>
-                Players will only be registered for the tournament after completing the payment process.
-            </li>
-            <li>
-                <strong>Match Duration:</strong>
-                <ul>
-                    <li>All matches will be 10 minutes long.</li>
-                    <li>Semi-final matches will be 12 minutes long.</li>
-                    <li>The final match will be 15 minutes long.</li>
-                </ul>
-            </li>
-        </ol>
+      <h1>Terms and Conditions</h1>
+      <ol class="terms-list">
+        <li>
+          <strong>Tournament Discord Server:</strong>
+          Each player must join the tournament Discord server. Failure to do so
+          will result in disqualification.
+        </li>
+        <li>
+          <strong>Face Camera Requirement:</strong>
+          Players must have access to a face camera. Face cameras must remain on
+          during the game.
+        </li>
+        <li>
+          <strong>Screen Sharing:</strong>
+          One of the players is required to share their screen in Discord during
+          gameplay.
+        </li>
+        <li>
+          <strong>Connection Failures:</strong>
+          Connection failures caused by call interruptions, messages,
+          notifications, etc., will not be considered.
+        </li>
+        <li>
+          <strong>Punctuality:</strong>
+          The tournament schedule is fixed. Players must be available at the
+          specified time; otherwise, their opponent will be declared the winner
+          of that match.
+        </li>
+        <li>
+          <strong>Unavailability:</strong>
+          If both players are unavailable during the scheduled match, they will
+          each receive zero points.
+        </li>
+        <li>
+          <strong>Registration and Payment:</strong>
+          Players will only be registered for the tournament after completing
+          the payment process.
+        </li>
+        <li>
+          <strong>Match Duration:</strong>
+          <ul>
+            <li>All matches will be 10 minutes long.</li>
+            <li>Semi-final matches will be 12 minutes long.</li>
+            <li>The final match will be 15 minutes long.</li>
+          </ul>
+        </li>
+      </ol>
     </div>
+  </body>
+  <script>
+    fetch("base.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
 
+        // Ensure JavaScript for active link is executed after navbar is loaded
+        const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
+        const navbarLinks = document.querySelectorAll(".navbar-item a"); // Get all navbar links
 
+        navbarLinks.forEach((link) => {
+          const linkPage = link.getAttribute("href").split("/").pop(); // Get the page name from the href
+
+          if (currentPage === linkPage) {
+            link.classList.add("active"); // Add the 'active' class to the current link
+          }
+        });
+      });
+  </script>
 </body>
-<script>
-    fetch('base.html')
-        .then(response => response.text())
-        .then(data => document.getElementById('navbar-placeholder').innerHTML = data);
-</script>
+</html>
+
 
 </html>
