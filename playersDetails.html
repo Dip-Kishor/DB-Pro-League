@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="cropped_image.png" type="image/x-icon" />
     <title>Players Details</title>
     <link href="style.css" />
     <style>
@@ -47,16 +48,16 @@
         text-decoration: none;
         cursor: pointer;
       }
-      .modal-content img{
-         width: 100%;
-          height: 270px
+      .modal-content img {
+        width: 100%;
+        height: 270px;
       }
       @media (max-width: 480px) {
-        .modal-content{
-            height: 200px;
+        .modal-content {
+          height: 170px;
         }
-        .modal-content img{
-            height: 170px;
+        .modal-content img {
+          height: 135px;
         }
       }
     </style>
@@ -84,12 +85,7 @@
       <div class="modal-content">
         <span class="close" id="closeModal">&times;</span>
         <h2 id="modalPlayerName">Player Name</h2>
-        <img
-          id="modalImage"
-          src=""
-          alt="Player Image"
-         
-        />
+        <img id="modalImage" src="" alt="Player Image" />
         <!-- <p id="modalDescription">Player description will appear here.</p> -->
       </div>
     </div>
@@ -117,7 +113,21 @@
             imgSrc: "/Images/Players/Season1/Bijay.jpg",
             title: "Bijay Subedi",
             description: "Description for Player 1",
-            modalImgSrc: "/Images/Players/Season1/Bijay's's Team.jpg", // Add a detailed image for the modal
+            modalImgSrc: "/Images/Players/Season1/Bijay's Team.jpg", // Add a detailed image for the modal
+            // modalDescription: "Detailed description for Dip Regmi",
+          },
+          {
+            imgSrc: "/Images/Players/Season1/Sujan.jpg",
+            title: "Sujan Dahal",
+            description: "Description for Player 1",
+            modalImgSrc: "/Images/Players/Season1/Sujan's Team.jpg", // Add a detailed image for the modal
+            // modalDescription: "Detailed description for Dip Regmi",
+          },
+          {
+            imgSrc: "/Images/Players/Season1/Sudip.jpg",
+            title: "Sudip Dahal",
+            description: "Description for Player 1",
+            modalImgSrc: "/Images/Players/Season1/Sudip's Team.jpg", // Add a detailed image for the modal
             // modalDescription: "Detailed description for Dip Regmi",
           },
         ],

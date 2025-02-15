@@ -755,7 +755,7 @@ h1{
   transition: transform 0.3s ease-in-out;
   text-align: center;
   height: 320px;
-    width: 20%;
+    width: 18%;
 }
 
 .team-card img {
@@ -815,5 +815,108 @@ h1{
   .team-card img{
     width: 155px;
     height: 155px;
+  }
+  .terms-container {
+    max-width: 800px;
+    margin: 20px 20px;
+  }
+}
+
+.home-card-container {
+  display: flex;
+      gap: 20px;
+      padding: 20px;
+      justify-content: space-evenly;
+      width: 100%;
+}
+
+.home-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+.home-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the button horizontally */
+  text-align: center; /* Ensures text is also centered */
+}
+
+.home-card-button {
+  padding: 8px 12px;
+  color: white;
+  background: #3d5d50;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center; /* Center text */
+  cursor: pointer;
+}
+
+.home-card-button:hover {
+  background-color: #10b981;
+}
+
+.home-card-button a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+
+.text {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.highlight-blue { color: #3b82f6; }
+.highlight-green { color: #10b981; }
+.highlight-red { color: #ef4444; }
+.highlight-gray { color: #6b7280; }
+
+.home-card-button{
+  padding: 5px;
+    color: white;
+    background: #3d5d50;
+    border: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-align: right;
+    
+}
+.home-card-button:hover{
+  background-color: #10b981;
+    
+}
+.home-card-button a{
+  color: #ddd;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .home-card-container {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
   }
 }
