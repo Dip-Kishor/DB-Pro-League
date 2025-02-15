@@ -857,9 +857,7 @@ h1{
   cursor: pointer;
 }
 
-.home-card-button:hover {
-  background-color: #10b981;
-}
+
 
 .home-card-button a {
   color: #ddd;
@@ -894,9 +892,8 @@ h1{
     text-align: right;
     
 }
-.home-card-button:hover{
-  background-color: #10b981;
-    
+.home-card-button:hover {
+  background-color: #06553b;
 }
 .home-card-button a{
   color: #ddd;
