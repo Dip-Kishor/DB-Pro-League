@@ -93,57 +93,127 @@
     <script>
       // Example data for each season
       /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       const seasonData = {
         season1: [
           {
             imgSrc: "/Images/Players/Season1/Dip.jpg",
             title: "Dip Regmi",
             description: "Description for Player 1",
-            modalImgSrc: "/Images/Players/Season1/Dip's Team.jpg", // Add a detailed image for the modal
-            // modalDescription: "Detailed description for Dip Regmi",
-          },
-          {
-            imgSrc: "/Images/Players/Season1/Pujan.jpg",
-            title: "Pujan Dahal",
-            description: "Description for Player 1",
-            modalImgSrc: "/Images/Players/Season1/Pujan's Team.jpg", // Add a detailed image for the modal
-            // modalDescription: "Detailed description for Dip Regmi",
-          },
-          {
-            imgSrc: "/Images/Players/Season1/Bijay.jpg",
-            title: "Bijay Subedi",
-            description: "Description for Player 1",
-            modalImgSrc: "/Images/Players/Season1/Bijay's Team.jpg", // Add a detailed image for the modal
+            modalImgSrc: "/Images/Players/Season1/Dip's .jpg", // Add a detailed image for the modal
             // modalDescription: "Detailed description for Dip Regmi",
           },
           {
             imgSrc: "/Images/Players/Season1/Sujan.jpg",
             title: "Sujan Dahal",
             description: "Description for Player 1",
-            modalImgSrc: "/Images/Players/Season1/Sujan's Team.jpg", // Add a detailed image for the modal
+            modalImgSrc: "/Images/Players/Season1/Sujan's .jpg", // Add a detailed image for the modal
             // modalDescription: "Detailed description for Dip Regmi",
           },
           {
             imgSrc: "/Images/Players/Season1/Sudip.jpg",
             title: "Sudip Dahal",
             description: "Description for Player 1",
-            modalImgSrc: "/Images/Players/Season1/Sudip's Team.jpg", // Add a detailed image for the modal
+            modalImgSrc: "/Images/Players/Season1/Sudip's .jpg", // Add a detailed image for the modal
+            // modalDescription: "Detailed description for Dip Regmi",
+          },
+          {
+            imgSrc: "/Images/Players/Season1/Bijay.jpg",
+            title: "Bijay Subedi",
+            description: "Description for Player 1",
+            modalImgSrc: "/Images/Players/Season1/Bijay's .jpg", // Add a detailed image for the modal
+            // modalDescription: "Detailed description for Dip Regmi",
+          },
+          {
+            imgSrc: "/Images/Players/Season1/Samrat.jpg",
+            title: "Samrat Subedi",
+            description: "Description for Player 1",
+            modalImgSrc: "/Images/Players/Season1/Samrat's .jpg", // Add a detailed image for the modal
+            // modalDescription: "Detailed description for Dip Regmi",
+          },
+          {
+            imgSrc: "/Images/Players/Season1/Ishor.jpg",
+            title: "Ishor Kattel",
+            description: "Description for Player 1",
+            modalImgSrc: "/Images/Players/Season1/Ishor's .jpg", // Add a detailed image for the modal
+            // modalDescription: "Detailed description for Dip Regmi",
+          },
+          {
+            imgSrc: "/Images/Players/Season1/Mausam.jpg",
+            title: "Mausam Limbu",
+            description: "Description for Player 1",
+            modalImgSrc: "/Images/Players/Season1/Mausam's .jpg", // Add a detailed image for the modal
+            // modalDescription: "Detailed description for Dip Regmi",
+          },
+          {
+            imgSrc: "/Images/Players/Season1/Prabesh.jpg",
+            title: "Prabesh Parajuli",
+            description: "Description for Player 1",
+            modalImgSrc: "/Images/Players/Season1/Prabesh's .jpg", // Add a detailed image for the modal
+            // modalDescription: "Detailed description for Dip Regmi",
+          },
+          {
+            imgSrc: "/Images/Players/Season1/Roman.jpg",
+            title: "Roman Budathoki",
+            description: "Description for Player 1",
+            modalImgSrc: "/Images/Players/Season1/Roman's .jpg", // Add a detailed image for the modal
+            // modalDescription: "Detailed description for Dip Regmi",
+          },
+        ],
+        season2: [
+          {
+            imgSrc: "/Images/Players/Season2/Dip.jpg",
+            title: "Dip Regmi",
+            description: "Description for Player 1",
+            modalImgSrc: "/Images/Players/Season2/Dip's Team.jpg", // Add a detailed image for the modal
+            // modalDescription: "Detailed description for Dip Regmi",
+          },
+          {
+            imgSrc: "/Images/Players/Season2/Pujan.jpg",
+            title: "Pujan Dahal",
+            description: "Description for Player 1",
+            modalImgSrc: "/Images/Players/Season2/Pujan's Team.jpg", // Add a detailed image for the modal
+            // modalDescription: "Detailed description for Dip Regmi",
+          },
+          {
+            imgSrc: "/Images/Players/Season2/Bijay.jpg",
+            title: "Bijay Subedi",
+            description: "Description for Player 1",
+            modalImgSrc: "/Images/Players/Season2/Bijay's Team.jpg", // Add a detailed image for the modal
+            // modalDescription: "Detailed description for Dip Regmi",
+          },
+          {
+            imgSrc: "/Images/Players/Season2/Sujan.jpg",
+            title: "Sujan Dahal",
+            description: "Description for Player 1",
+            modalImgSrc: "/Images/Players/Season2/Sujan's Team.jpg", // Add a detailed image for the modal
+            // modalDescription: "Detailed description for Dip Regmi",
+          },
+          {
+            imgSrc: "/Images/Players/Season2/Sudip.jpg",
+            title: "Sudip Dahal",
+            description: "Description for Player 1",
+            modalImgSrc: "/Images/Players/Season2/Sudip's Team.jpg", // Add a detailed image for the modal
             // modalDescription: "Detailed description for Dip Regmi",
           },
         ],
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        season2: [
-          // Add more cards for season2 as needed
-        ],
       };
 
-      // Initial load for season 1
-      updateSeasonContent();
+      // Set default season to 'season2' when the page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        const seasonDropdown = document.getElementById("season-dropdown");
 
-      // Event listener to update the cards when the season changes
-      document
-        .getElementById("season-dropdown")
-        .addEventListener("change", updateSeasonContent);
+        // Set 'season2' as the default value for the dropdown
+        seasonDropdown.value = "season2";
+
+        // Call the function to load content for season 2 when the page loads
+        updateSeasonContent();
+
+        // Event listener to update the cards when the season changes
+        seasonDropdown.addEventListener("change", updateSeasonContent);
+      });
 
       // Function to update the cards based on the selected season
       function updateSeasonContent() {
@@ -174,11 +244,6 @@
           title.innerText = player.title;
           card.appendChild(title);
 
-          //   // Create description element
-          //   const description = document.createElement("p");
-          //   description.innerText = player.description;
-          //   card.appendChild(description);
-
           // Create button element
           const button = document.createElement("button");
           button.innerText = "View Team";
@@ -197,12 +262,10 @@
         const modal = document.getElementById("teamModal");
         const modalPlayerName = document.getElementById("modalPlayerName");
         const modalImage = document.getElementById("modalImage");
-        // const modalDescription = document.getElementById("modalDescription");
 
         // Update modal content with player data
         modalPlayerName.innerText = player.title;
         modalImage.src = player.modalImgSrc; // Set detailed image for the modal
-        // modalDescription.innerText = player.modalDescription;
 
         // Display the modal
         modal.style.display = "block";

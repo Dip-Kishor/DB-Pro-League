@@ -107,7 +107,8 @@
         //Round 1
       ];
       const seasonData = {
-        season1: [
+        season1: [],
+        season2: [
           // {
           //   teamA: "Prabesh",
           //   scoreA: NaN,
@@ -493,13 +494,18 @@
             teamB: "D",
           },
         ],
-        season2: [],
       };
 
       function renderFixtures(seasonKey) {
         const data = seasonData[seasonKey] || [];
         const container = document.getElementById("fixtures-container");
         container.innerHTML = ""; // Clear previous fixtures
+
+        if (data.length === 0) {
+          // If no data for the selected season, show the "No data available" message
+          container.innerHTML = `<p class="no-data-message">No data available for this season.</p>`;
+          return;
+        }
 
         const fixturesByDate = data.reduce((acc, fixture) => {
           if (!acc[fixture.date]) {
@@ -559,33 +565,31 @@
         });
       }
 
-      // Event listener for dropdown change
-      document
-        .getElementById("season-dropdown")
-        .addEventListener("change", function () {
-          renderFixtures(this.value);
+      // Wait for the DOM to fully load before executing the script
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set the dropdown value to 'Season 2' by default
+        const seasonDropdown = document.getElementById("season-dropdown");
+        seasonDropdown.value = "season2";
+
+        // Now render the fixtures for 'Season 2'
+        renderFixtures(seasonDropdown.value);
+
+        // Event listener for dropdown change
+        seasonDropdown.addEventListener("change", function () {
+          const seasonKey = this.value; // Get the selected season value
+          renderFixtures(seasonKey); // Rerender fixtures for the selected season
         });
 
-      // Track the selected season key
-      let seasonKey = document.getElementById("season-dropdown").value;
-
-      // Update the seasonKey when the dropdown changes
-      document
-        .getElementById("season-dropdown")
-        .addEventListener("change", function () {
-          seasonKey = this.value; // Update seasonKey based on dropdown selection
-          renderFixtures(seasonKey); // Optionally rerender the fixtures for the new season
-        });
-
-      // Event delegation: Wait for fixtures to be rendered, then bind the event listener to team elements
-      document
-        .getElementById("fixtures-container")
-        .addEventListener("click", function (event) {
-          if (event.target && event.target.classList.contains("team")) {
-            const teamName = event.target.getAttribute("data-team");
-            showTeamHistory(teamName, seasonKey); // Pass the current seasonKey
-          }
-        });
+        // Event delegation: Wait for fixtures to be rendered, then bind event listener to team elements
+        document
+          .getElementById("fixtures-container")
+          .addEventListener("click", function (event) {
+            if (event.target && event.target.classList.contains("team")) {
+              const teamName = event.target.getAttribute("data-team");
+              showTeamHistory(teamName, seasonDropdown.value); // Pass the seasonKey for the team history
+            }
+          });
+      });
 
       function showTeamHistory(team, seasonKey) {
         const modal = document.getElementById("team-history-modal");
@@ -691,6 +695,33 @@
       const playoffSeasons = {
         season1: {
           Qualifier: {
+            team1: "Samrat (7)",
+            team2: "(6)  Dip ",
+            teamAScore: "3",
+            teamBScore: "3",
+          },
+          Eliminator1: {
+            team1: "Sujan",
+            team2: "Mausam",
+            teamAScore: "2",
+            teamBScore: "1",
+          },
+          Eliminator2: {
+            team1: "NaN",
+            team2: "NaN",
+            teamAScore: "NaN",
+            teamBScore: "NaN",
+          },
+          Final: {
+            team1: "Sujan",
+            team2: "Samrat",
+            teamAScore: "4",
+            teamBScore: "2",
+          },
+          Champion: { name: "Sujan" },
+        },
+        season2: {
+          Qualifier: {
             team1: "1st",
             team2: "2nd",
             teamAScore: "NaN",
@@ -715,33 +746,6 @@
             teamBScore: "NaN",
           },
           Champion: { name: "Winner of Final" },
-        },
-        season2: {
-          Qualifier: {
-            team1: "Team X",
-            team2: "Team Y",
-            teamAScore: "3",
-            teamBScore: "2",
-          },
-          Eliminator1: {
-            team1: "Team Z",
-            team2: "Team W",
-            teamAScore: "1",
-            teamBScore: "2",
-          },
-          Eliminator2: {
-            team1: "Loser Q",
-            team2: "Winner E1",
-            teamAScore: "2",
-            teamBScore: "3",
-          },
-          Final: {
-            team1: "Winner Q",
-            team2: "Winner E2",
-            teamAScore: "1",
-            teamBScore: "2",
-          },
-          Champion: { name: "Winner of Final S2" },
         },
       };
 
@@ -772,7 +776,7 @@
         });
 
       // Initialize with default season (Season 1)
-      updatePlayoffBracket("season1");
+      updatePlayoffBracket("season2");
 
       // Close Playoff Modal
       document
