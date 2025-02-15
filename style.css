@@ -712,6 +712,7 @@ h1{
   .section h1, .section #playoff {
     padding: 10px;
   }
+ 
   .fixtures {
     flex-direction: column;
     gap: 15px;
@@ -959,10 +960,10 @@ h1{
 
   @keyframes marquee {
     from {
-      transform: translateX(100%);
+      transform: translateX(30%);
     }
     to {
-      transform: translateX(-100%);
+      transform: translateX(-90%);
     }
   }
 }
@@ -1003,4 +1004,21 @@ h1{
   font-weight: bold;
 }
 
-
+.section #formLink{
+  font-size: 20px;
+    padding-top: 80px;
+    padding-right: 253px;
+}
+.section #formLink a{
+  color: white;
+  text-shadow: 2px 2px 8px #FF0000;
+}
+.section #formLink a:hover{
+  cursor: pointer;
+  color:#ff6347;
+}
+@media (max-width:768px){
+  .section #formLink {
+    padding: 10px;
+  }
+}
