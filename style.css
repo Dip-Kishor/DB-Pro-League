@@ -969,7 +969,7 @@ h1{
 }
 
 #season-heading{
-  color: white;
+  color: rgb(5, 4, 4);
   text-align: center;
   /* width: 100%; */
 }
@@ -977,12 +977,16 @@ h1{
   color: black;
   width: 100%;
   text-align: center;
-  background: #f5f5dc;
+  background: #f7f7d7;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px 0;
+}
+.season-container{
+  background: #f7f7d7;
+border-top: 2px solid black;
 }
 
 .winner-details {
