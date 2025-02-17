@@ -78,21 +78,21 @@
           // },
           {
             name: "Bijay",
-            played: 0,
+            played: 1,
             win: 0,
             draw: 0,
-            lost: 0,
+            lost: 1,
             gf: 0,
-            ga: 0,
+            ga: 1,
           },
           {
             name: "Dip",
-            played: 0,
-            win: 0,
+            played: 1,
+            win: 1,
             draw: 0,
             lost: 0,
-            gf: 0,
-            ga: 0,
+            gf: 2,
+            ga: 1,
           },
           // {
           //   name: "Prabesh",
@@ -105,12 +105,12 @@
           // },
           {
             name: "Pujan",
-            played: 0,
+            played: 1,
             win: 0,
             draw: 0,
-            lost: 0,
+            lost: 1,
             gf: 0,
-            ga: 0,
+            ga: 5,
           },
 
           // {
@@ -134,30 +134,30 @@
           },
           {
             name: "Samrat",
-            played: 0,
-            win: 0,
+            played: 1,
+            win: 1,
             draw: 0,
             lost: 0,
-            gf: 0,
+            gf: 1,
             ga: 0,
           },
           {
             name: "Sudip",
-            played: 0,
-            win: 0,
+            played: 1,
+            win: 1,
             draw: 0,
             lost: 0,
-            gf: 0,
+            gf: 5,
             ga: 0,
           },
           {
             name: "Sujan",
-            played: 0,
+            played: 1,
             win: 0,
             draw: 0,
-            lost: 0,
-            gf: 0,
-            ga: 0,
+            lost: 1,
+            gf: 1,
+            ga: 2,
           },
         ],
       };
@@ -194,20 +194,20 @@
 
       // Function to render the table
       // Function to render the table
-function renderTable() {
-  sortTeams(); // Sort teams before rendering and assign ranks
-  const tableBody = document.querySelector("#team-table tbody");
-  tableBody.innerHTML = ""; // Clear existing rows
+      function renderTable() {
+        sortTeams(); // Sort teams before rendering and assign ranks
+        const tableBody = document.querySelector("#team-table tbody");
+        tableBody.innerHTML = ""; // Clear existing rows
 
-  if (!teams || teams.length === 0) {
-    // If no data, display the message
-    tableBody.innerHTML = `<p class="no-data-message">No data available for this season.</p>`;
-    return;
-  }
+        if (!teams || teams.length === 0) {
+          // If no data, display the message
+          tableBody.innerHTML = `<p class="no-data-message">No data available for this season.</p>`;
+          return;
+        }
 
-  teams.forEach((team) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
+        teams.forEach((team) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
       <td>${team.rank}</td>
       <td>${team.name}</td>
       <td>${team.played}</td>
@@ -219,30 +219,29 @@ function renderTable() {
       <td>${team.gd}</td>
       <td>${team.points}</td>
     `;
-    tableBody.appendChild(row);
-  });
-}
+          tableBody.appendChild(row);
+        });
+      }
 
-// Wait for the DOM to be ready
-document.addEventListener("DOMContentLoaded", function () {
-  // Set the default dropdown value to 'season2'
-  const seasonDropdown = document.getElementById("season-dropdown");
-  seasonDropdown.value = "season2";
+      // Wait for the DOM to be ready
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set the default dropdown value to 'season2'
+        const seasonDropdown = document.getElementById("season-dropdown");
+        seasonDropdown.value = "season2";
 
-  // Initialize 'teams' based on 'season2' data from 'seasonData'
-  teams = seasonData["season2"]; // Assuming seasonData is an object with season keys
+        // Initialize 'teams' based on 'season2' data from 'seasonData'
+        teams = seasonData["season2"]; // Assuming seasonData is an object with season keys
 
-  // Render the table for 'season2'
-  renderTable();
+        // Render the table for 'season2'
+        renderTable();
 
-  // Event listener for dropdown change to render data for selected season
-  seasonDropdown.addEventListener("change", function () {
-    const selectedSeason = this.value; // Get the selected season value
-    teams = seasonData[selectedSeason]; // Update the 'teams' based on the selected season
-    renderTable(); // Re-render the table with the new season data
-  });
-});
-
+        // Event listener for dropdown change to render data for selected season
+        seasonDropdown.addEventListener("change", function () {
+          const selectedSeason = this.value; // Get the selected season value
+          teams = seasonData[selectedSeason]; // Update the 'teams' based on the selected season
+          renderTable(); // Re-render the table with the new season data
+        });
+      });
     </script>
   </body>
 </html>
