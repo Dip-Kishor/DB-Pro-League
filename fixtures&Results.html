@@ -544,8 +544,6 @@
           container.appendChild(card);
           roundNumber++;
         });
-
-        // Reattach event listeners for team name clicks after rendering
         document.querySelectorAll(".team").forEach((teamElement) => {
           teamElement.addEventListener("click", (event) => {
             const teamName = event.target.getAttribute("data-team");
@@ -713,26 +711,26 @@
           Qualifier: {
             team1: "Dip",
             team2: "Suzan",
-            teamAScore: "-",
-            teamBScore: "-",
+            teamAScore: "3",
+            teamBScore: "4",
           },
           Eliminator1: {
             team1: "Bijay",
             team2: "Sudip",
-            teamAScore: "-",
-            teamBScore: "-",
+            teamAScore: "1",
+            teamBScore: "0",
           },
           Eliminator2: {
-            team1: "L of Q",
-            team2: "W of E1",
-            teamAScore: "NaN",
-            teamBScore: "NaN",
+            team1: "Dip",
+            team2: "Bijay",
+            teamAScore: "2",
+            teamBScore: "1",
           },
           Final: {
-            team1: "W of Q",
-            team2: "W of E2",
-            teamAScore: "NaN",
-            teamBScore: "NaN",
+            team1: "Sujan",
+            team2: "Dip",
+            teamAScore: "-",
+            teamBScore: "-",
           },
           Champion: { name: "Winner of Final" },
         },
