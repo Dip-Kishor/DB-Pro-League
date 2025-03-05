@@ -968,11 +968,41 @@ h1{
   }
 }
 
-#season-heading{
-  color: rgb(5, 4, 4);
+/* .season-winner-container {
+  color: black;
+  width: 100%;
   text-align: center;
-  /* width: 100%; */
+  background: #f7f7d7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
 }
+.winner-container{
+  display: flex;
+  margin: 10px;
+}
+.winner-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.winner-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+} */
+.winner-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Ensures spacing between elements */
+  margin-top: 20px;
+  width: 100%;
+}
+
 .season-winner-container {
   color: black;
   width: 100%;
@@ -984,17 +1014,47 @@ h1{
   align-items: center;
   padding: 20px 0;
 }
-.season-container{
-  background: #f7f7d7;
-border-top: 2px solid black;
+
+.winner-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
-.winner-details {
+.winner-card {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 20px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
 }
+
+#season-heading{
+  color: rgb(246, 243, 243);
+  text-align: center;
+}
+/* .season-container{
+  background: #f7f7d7;
+border-top: 2px solid black;
+} */
+/*
+.season-winner-container {
+  color: black;
+  width: 100%;
+  text-align: center;
+  background: #f7f7d7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+
+
 
 .winner-image {
   width: 100px;
@@ -1006,7 +1066,7 @@ border-top: 2px solid black;
 .winner-name {
   font-size: 1.5rem;
   font-weight: bold;
-}
+} */
 
 .section #formLink{
   font-size: 20px;
